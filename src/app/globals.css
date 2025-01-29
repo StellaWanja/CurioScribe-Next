@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+* {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .nav-buttons {
+    @apply transition-colors delay-100 ease-in hover:bg-[#fff6cc] dark:hover:text-[#262642];
+  }
+}
