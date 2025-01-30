@@ -14,6 +14,7 @@ export default function Home() {
       <p className="mt-4 px-10 text-center text-wrap text-pink font-black font-mono sm:text-xl md:text-2xl">
         Unleash Your Creativity with AI-Powered Content Generation.
       </p>
+      <div></div>
     </section>
   );
 }
