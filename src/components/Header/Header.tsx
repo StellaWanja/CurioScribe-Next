@@ -6,7 +6,8 @@ import { NotebookText, Menu, CircleX } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ThemeSwitcher from "./ThemeSwitcher";
-import NavButtons from "../Buttons/NavButtons";
+import TextButton from "../Buttons/TextButton";
+import SolidButton from "../Buttons/SolidButton";
 import { menuVars, containerVars } from "@/utils/variants";
 
 function Header() {
@@ -25,20 +26,19 @@ function Header() {
             aria-label="Curioscribe logo"
             className="flex gap-1 items-center"
           >
-            <NotebookText />
-            <span className="tracking-wide font-bold text-lg">Curioscribe</span>
+            <NotebookText className="stroke-[2.5] w-12 h-12" />
           </Link>
           <div className="sm:flex hidden gap-2">
-            <NavButtons>Sign up</NavButtons>
-            <NavButtons>Log in</NavButtons>
+            <SolidButton>Sign up</SolidButton>
+            <TextButton>Log in</TextButton>
             <ThemeSwitcher />
           </div>
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
-            className="sm:hidden flex items-center justify-center nav-buttons w-[3rem] h-[3rem] rounded-full"
+            className="sm:hidden flex items-center justify-center text-button text-[#262642] bg-[#FFFFFF] w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad]"
           >
-            <Menu />
+            <Menu className="stroke-[2.5]" />
           </button>
         </nav>
       )}
@@ -54,22 +54,21 @@ function Header() {
             className="fixed left-0 top-0 w-full h-screen bg-[#F5DF4D] text-[#262642] dark:bg-[#262642] dark:text-[#FFFFFF] p-10 z-50 origin-top"
           >
             <div className="flex h-full flex-col py-8 px-4">
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <Link
                   href="/"
                   aria-label="Curioscribe logo"
                   className="flex gap-1 items-center text-[#262642] dark:text-[#FFFFFF]"
                 >
-                  <NotebookText />
-                  <span className="tracking-wide font-bold">Curioscribe</span>
+                  <NotebookText className="stroke-[2.5] w-10 h-10" />
                 </Link>
 
                 <button
-                  className="nav-buttons text-xl focus:outline-none w-[3rem] h-[3rem] rounded-full flex items-center justify-center"
+                  className="text-button text-xl focus:outline-none w-[3rem] h-[3rem] rounded-full flex items-center justify-center"
                   onClick={toggleMenu}
                   aria-label="Close menu"
                 >
-                  <CircleX />
+                  <CircleX className="stroke-[2.5]" />
                 </button>
               </div>
 
@@ -80,9 +79,9 @@ function Header() {
                 exit="initial"
                 className="flex flex-col h-full justify-center items-center gap-4 "
               >
-                <div className="overflow-hidden flex flex-col items-center">
-                  <NavButtons>Sign up</NavButtons>
-                  <NavButtons>Log in</NavButtons>
+                <div className="overflow-hidden flex flex-col items-center gap-2">
+                  <SolidButton>Sign up</SolidButton>
+                  <TextButton>Log in</TextButton>
                 </div>
               </motion.div>
               <ThemeSwitcher />

@@ -13,6 +13,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ["--font-poppins"],
+        mono: ["--font-nunito-sans"],
+      },
     },
   },
   plugins: [],

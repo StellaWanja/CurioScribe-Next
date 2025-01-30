@@ -25,7 +25,10 @@ body {
 }
 
 @layer utilities {
-  .nav-buttons {
-    @apply transition-colors delay-100 ease-in hover:bg-[#fff6cc] dark:hover:text-[#262642];
+  .text-button {
+    @apply transition-colors delay-100 ease-in hover:bg-[#FF3399] hover:text-[#FFFFFF];
+  }
+  .solid-button {
+    @apply transition-colors delay-100 ease-in bg-[#FF3399] text-[#FFFFFF] hover:bg-[#262642];
   }
 }

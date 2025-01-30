@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Work_Sans, Spline_Sans_Mono } from "next/font/google";
+import {Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
 import ThemeProvider from "@/utils/ThemeProvider";
 import Header from "@/components/Header/Header";
 import "./globals.css";
 
-const mainFont = Work_Sans({
+const mainFont = Poppins({
   subsets: ["latin"],
   display: "fallback",
-  weight: "variable",
-  variable: "--font-family",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
-const monoFont = Spline_Sans_Mono({
+const monoFont = Nunito_Sans({
   subsets: ["latin"],
   display: "fallback",
-  weight: "variable",
-  variable: "--font-family-mono",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-nunito-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Curioscribe",
+  title: "CurioScribe",
   description: "An AI story and article generator",
 };
 

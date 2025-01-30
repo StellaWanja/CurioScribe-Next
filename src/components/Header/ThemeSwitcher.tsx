@@ -21,11 +21,11 @@ function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-      className="flex items-center justify-center border-none cursor-pointer w-[3rem] h-[3rem] rounded-full transition-colors delay-100 ease-in hover:bg-[#fff6cc] dark:hover:text-[#262642]"
+      className="flex items-center justify-center border-none cursor-pointer w-[3rem] h-[3rem] rounded-full transition-colors delay-100 ease-in hover:bg-[#FF3399] hover:text-[#FFFFFF]"
       type="button"
       aria-label="Toggle dark/light mode"
     >
-      {currentTheme === "dark" ? <Sun /> : <Moon />}
+      {currentTheme === "dark" ? <Sun className="stroke-[2.5]" /> : <Moon className="stroke-[2.5]" />}
     </button>
   );
 }
