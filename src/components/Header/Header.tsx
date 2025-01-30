@@ -6,8 +6,7 @@ import { NotebookText, Menu, CircleX } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ThemeSwitcher from "./ThemeSwitcher";
-import TextButton from "../Buttons/TextButton";
-import SolidButton from "../Buttons/SolidButton";
+import Button from "../Buttons/Button";
 import { menuVars, containerVars } from "@/utils/variants";
 
 function Header() {
@@ -18,7 +17,7 @@ function Header() {
   }
 
   return (
-    <header className="px-4 bg-[#F5DF4D] text-[#262642] dark:bg-[#262642] dark:text-[#FFFFFF]">
+    <header className="px-4 bg-yellow text-black dark:bg-black dark:text-white">
       {!isOpen && (
         <nav className="flex justify-between items-center py-4 px-2">
           <Link
@@ -29,14 +28,14 @@ function Header() {
             <NotebookText className="stroke-[2.5] w-12 h-12" />
           </Link>
           <div className="sm:flex hidden gap-2">
-            <SolidButton>Sign up</SolidButton>
-            <TextButton>Log in</TextButton>
+            <Button className="solid-button">Sign up</Button>
+            <Button className="text-button">Log in</Button>
             <ThemeSwitcher />
           </div>
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
-            className="sm:hidden flex items-center justify-center text-button text-[#262642] bg-[#FFFFFF] w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad]"
+            className="sm:hidden flex items-center justify-center text-button text-black bg-white w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad]"
           >
             <Menu className="stroke-[2.5]" />
           </button>
@@ -80,8 +79,8 @@ function Header() {
                 className="flex flex-col h-full justify-center items-center gap-4 "
               >
                 <div className="overflow-hidden flex flex-col items-center gap-2">
-                  <SolidButton>Sign up</SolidButton>
-                  <TextButton>Log in</TextButton>
+                  <Button className="solid-button">Sign up</Button>
+                  <Button className="text-button">Log in</Button>
                 </div>
               </motion.div>
               <ThemeSwitcher />

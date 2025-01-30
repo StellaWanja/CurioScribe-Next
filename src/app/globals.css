@@ -26,9 +26,9 @@ body {
 
 @layer utilities {
   .text-button {
-    @apply transition-colors delay-100 ease-in hover:bg-[#FF3399] hover:text-[#FFFFFF];
+    @apply transition-colors delay-100 ease-in hover:bg-pink hover:text-white;
   }
   .solid-button {
-    @apply transition-colors delay-100 ease-in bg-[#FF3399] text-[#FFFFFF] hover:bg-[#262642];
+    @apply transition-colors delay-100 ease-in bg-pink text-white hover:bg-black;
   }
 }

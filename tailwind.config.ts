@@ -10,12 +10,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        white: "#FFFFFF",
+        black: "#262642",
+        pink: "#FF3399",
+        yellow: "#F5DF4D",
       },
       fontFamily: {
-        sans: ["--font-poppins"],
-        mono: ["--font-nunito-sans"],
+        sans: ["var(--font-poppins)"],
+        mono: ["var(--font-nunito-sans)"],
       },
     },
   },
