@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {Poppins, Nunito_Sans } from "next/font/google";
+import { Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
 import ThemeProvider from "@/utils/ThemeProvider";
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(mainFont.variable, monoFont.variable)}>
+      <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main>{children}</main>

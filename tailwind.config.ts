@@ -18,7 +18,7 @@ export default {
       fontFamily: {
         sans: ["var(--font-poppins)"],
         mono: ["var(--font-nunito-sans)"],
-      },
+      }
     },
   },
   plugins: [],

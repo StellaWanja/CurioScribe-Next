@@ -17,7 +17,7 @@ function Header() {
   }
 
   return (
-    <header className="px-4 bg-yellow text-black dark:bg-black dark:text-white">
+    <header className="px-4 bg-yellow  text-black dark:bg-black dark:text-white">
       {!isOpen && (
         <nav className="flex justify-between items-center py-4 px-2">
           <Link
@@ -25,9 +25,9 @@ function Header() {
             aria-label="Curioscribe logo"
             className="flex gap-1 items-center"
           >
-            <NotebookText className="stroke-[2.5] w-12 h-12" />
+            <NotebookText className="stroke-[2.5] w-12 h-12 text-white z-20" />
           </Link>
-          <div className="sm:flex hidden gap-2">
+          <div className="sm:flex hidden gap-2 z-20">
             <Button className="solid-button">Sign up</Button>
             <Button className="text-button">Log in</Button>
             <ThemeSwitcher />
@@ -35,9 +35,9 @@ function Header() {
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
-            className="sm:hidden flex items-center justify-center text-button text-black bg-white w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad]"
+            className="sm:hidden flex items-center justify-center text-button text-black bg-white w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad] z-20"
           >
-            <Menu className="stroke-[2.5]" />
+            <Menu className="stroke-[2.5] " />
           </button>
         </nav>
       )}
