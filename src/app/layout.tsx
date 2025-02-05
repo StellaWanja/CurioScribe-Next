@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
 import ThemeProvider from "@/utils/ThemeProvider";
 import Header from "@/components/Header/Header";
+import Spinner from "@/components/ui/Spinner";
 import "./globals.css";
 
 const mainFont = Poppins({
@@ -34,7 +36,7 @@ export default function RootLayout({
       <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main>{children}</main>
+          <Suspense fallback={<Spinner />}>{children}</Suspense>
         </ThemeProvider>
       </body>
     </html>

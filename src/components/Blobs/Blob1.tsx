@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import React from "react";
 import { useTheme } from "next-themes";
 
-function TopBlob() {
+function Blob1() {
   const { theme } = useTheme();
 
   const colour = theme === "dark" ? "#FF3399" : "#262642";
@@ -26,4 +26,4 @@ function TopBlob() {
   );
 }
 
-export default TopBlob;
+export default Blob1;

@@ -6,7 +6,7 @@ import { NotebookText, Menu, CircleX } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import ThemeSwitcher from "./ThemeSwitcher";
-import Button from "../Buttons/Button";
+import Button from "@/components/ui/Button";
 import { menuVars, containerVars } from "@/utils/variants";
 
 function Header() {
