@@ -1,15 +1,16 @@
 import { BookOpenText } from "lucide-react";
 
-import TopBlob from "@/components/Blobs/Blob1";
-import BottomBlob from "@/components/Blobs/Blob2";
+import Blob1 from "@/components/Blobs/Blob1";
+import Blob2 from "@/components/Blobs/Blob2";
+import Blob3 from "@/components/Blobs/Blob3";
 import Button from "@/components/ui/Button";
 
 export default function Home() {
   return (
-    <main>
-      <section className="relative bg-yellow text-black dark:bg-black dark:text-white min-h-screen w-full flex flex-col justify-center items-center px-4">
-        <div className="absolute -top-20 z-10 left-0">
-          <TopBlob />
+    <main className="bg-yellow dark:bg-black text-black dark:text-white">
+      <section className="relative min-h-screen w-full flex flex-col justify-center items-center px-4">
+        <div className="absolute hidden sm:block -top-20 z-10 left-0">
+          <Blob1 />
         </div>
         <div className="relative z-20">
           <h1 className="text-4xl sm:text-5xl md:text-8xl font-black">
@@ -26,27 +27,32 @@ export default function Home() {
           Sign up for free
         </Button>
 
-        <div className="absolute z-10 -bottom-28 -right-[30rem] overflow-hidden">
-          <BottomBlob />
+        <div className="absolute hidden sm:block z-10 -bottom-28 -right-[30rem] overflow-hidden">
+          <Blob2 />
         </div>
       </section>
 
-      <section className="min-h-screen w-full bg-yellow dark:bg-black text-black dark:text-white">
-        <svg
-          id="visual"
-          viewBox="0 0 900 600"
-          width="900"
-          height="600"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-        >
-          <g transform="translate(427.94301878714225 256.48574759618356)">
-            <path
-              d="M181.7 -195.2C236.5 -170.5 282.7 -114.2 278.1 -60.8C273.4 -7.4 217.9 43.2 179.6 98.3C141.3 153.3 120.3 212.9 71.8 256C23.4 299.1 -52.4 325.8 -108.8 303.3C-165.2 280.9 -202.1 209.5 -219.8 143.8C-237.5 78.2 -235.9 18.4 -231.1 -46.3C-226.3 -111.1 -218.3 -180.8 -179.2 -208.2C-140.1 -235.7 -70.1 -220.8 -3.3 -216.9C63.4 -212.9 126.8 -219.8 181.7 -195.2"
-              fill="#262642"
-            ></path>
-          </g>
-        </svg>
+      <section className="relative min-h-screen w-full px-8">
+        <div className="w-full sm:w-1/2 mx-auto px-4 z-20">
+          <h3 className="font-bold text-pink text-3xl pb-8 md:text-center">
+            Welcome to CurioScribe: Unleash Your Creative Potential
+          </h3>
+          <p className="pb-4 text-xl">
+            At CurioScribe, we believe that creativity knows no bounds. Powered
+            by cutting-edge AI technology, our platform empowers you to
+            effortlessly generate high-quality, engaging stories and articles
+            tailored to your unique ideas and themes.
+          </p>
+          <p className="pb-4 text-xl">
+            Whether you&apos;re a content creator, blogger, storyteller, or just
+            someone seeking inspiration, CurioScribe transforms your prompts
+            into captivating narratives that capture your audience&apos;s
+            attention.
+          </p>
+        </div>
+        <div className="absolute hidden sm:block top-0  sm:-left-[34rem] md:-left-[30rem]">
+          <Blob3 />
+        </div>
       </section>
     </main>
   );
