@@ -1,9 +1,10 @@
 import { BookOpenText } from "lucide-react";
 
-import Blob1 from "@/components/Blobs/Blob1";
-import Blob2 from "@/components/Blobs/Blob2";
-import Blob3 from "@/components/Blobs/Blob3";
+import Blob1 from "@/components/ui/Blobs/Blob1";
+import Blob2 from "@/components/ui/Blobs/Blob2";
+import Blob3 from "@/components/ui/Blobs/Blob3";
 import Button from "@/components/ui/Button";
+import HomeCard from "@/components/ui/HomeCard";
 
 export default function Home() {
   return (
@@ -26,16 +27,15 @@ export default function Home() {
         <Button className="solid-button mt-8 py-4 z-20">
           Sign up for free
         </Button>
-
-        <div className="absolute hidden sm:block z-10 -bottom-28 -right-[30rem] overflow-hidden">
-          <Blob2 />
-        </div>
       </section>
 
-      <section className="relative min-h-screen w-full px-8">
+      <section className="bg-white dark:bg-black relative min-h-screen w-full pt-20 pb-8 px-8">
+        <div className="absolute hidden lg:block z-10 -top-[40%] -right-[25rem] overflow-hidden">
+          <Blob2 />
+        </div>
         <div className="w-full sm:w-1/2 mx-auto px-4 z-20">
-          <h3 className="font-bold text-pink text-3xl pb-8 md:text-center">
-            Welcome to CurioScribe: Unleash Your Creative Potential
+          <h3 className="font-bold text-pink text-3xl pb-8">
+            Welcome to CurioScribe: Unleash Your Creative Potential!
           </h3>
           <p className="pb-4 text-xl">
             At CurioScribe, we believe that creativity knows no bounds. Powered
@@ -52,6 +52,10 @@ export default function Home() {
         </div>
         <div className="absolute hidden sm:block top-0  sm:-left-[34rem] md:-left-[30rem]">
           <Blob3 />
+        </div>
+        <div className="w-full sm:w-1/2 mx-auto px-4 pt-8 z-20">
+          <h3 className="font-bold text-pink text-3xl">Why CurioScribe?</h3>
+          <HomeCard />
         </div>
       </section>
     </main>
