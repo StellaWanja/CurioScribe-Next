@@ -31,4 +31,10 @@ body {
   .solid-button {
     @apply transition-colors delay-100 ease-in bg-pink text-white hover:bg-black;
   }
+  .homecard-div{
+    @apply mt-6 w-24 h-24 flex items-center justify-center rounded-2xl shadow-md;
+  }
+  .floating-home-icon{
+    @apply absolute w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center rounded-2xl shadow-md
+  }
 }

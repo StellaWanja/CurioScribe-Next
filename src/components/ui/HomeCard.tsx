@@ -5,7 +5,7 @@ function HomeCard() {
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div>
-        <div className="mt-6 w-24 h-24 bg-[#FDEEF8] flex items-center justify-center rounded-2xl shadow-md">
+        <div className="homecard-div bg-[#FDEEF8]">
           <Palette size={48} className="stroke-[#990066]" />
         </div>
         <div className="mt-10">
@@ -18,7 +18,7 @@ function HomeCard() {
       </div>
 
       <div>
-        <div className="mt-6 w-24 h-24 bg-[#E5FAF9] flex items-center justify-center rounded-2xl shadow-md">
+        <div className="homecard-div bg-[#E5FAF9]">
           <Eye size={48} className="stroke-[#00CCBE]" />
         </div>
         <div className="mt-10">
@@ -31,7 +31,7 @@ function HomeCard() {
       </div>
 
       <div>
-        <div className="mt-6 w-24 h-24 bg-[#F2FAFD] flex items-center justify-center rounded-2xl shadow-md">
+        <div className="homecard-div bg-[#F2FAFD]">
           <FolderOpen size={48} className="stroke-[#4A8DFF]" />
         </div>
         <div className="mt-10">

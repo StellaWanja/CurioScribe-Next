@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 import ThemeProvider from "@/utils/ThemeProvider";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer.tsx/Footer";
 import Spinner from "@/components/ui/Spinner";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <Suspense fallback={<Spinner />}>{children}</Suspense>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

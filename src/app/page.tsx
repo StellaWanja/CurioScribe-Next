@@ -1,4 +1,4 @@
-import { BookOpenText } from "lucide-react";
+import { BookOpenText, PenTool, LetterText, NotebookPen } from "lucide-react";
 
 import Blob1 from "@/components/ui/Blobs/Blob1";
 import Blob2 from "@/components/ui/Blobs/Blob2";
@@ -27,12 +27,15 @@ export default function Home() {
         <Button className="solid-button mt-8 py-4 z-20">
           Sign up for free
         </Button>
+        <div className="absolute bottom-0 right-0">
+          <Blob2 />
+        </div>
       </section>
 
       <section className="bg-white dark:bg-black relative min-h-screen w-full pt-20 pb-8 px-8">
-        <div className="absolute hidden lg:block z-10 -top-[40%] -right-[25rem] overflow-hidden">
+        {/* <div className="absolute hidden lg:block z-10 -top-[40%] -right-[25rem] overflow-hidden">
           <Blob2 />
-        </div>
+        </div> */}
         <div className="w-full sm:w-1/2 mx-auto px-4 z-20">
           <h3 className="font-bold text-pink text-3xl pb-8">
             Welcome to CurioScribe: Unleash Your Creative Potential!
@@ -50,7 +53,7 @@ export default function Home() {
             attention.
           </p>
         </div>
-        <div className="absolute hidden sm:block top-0  sm:-left-[34rem] md:-left-[30rem]">
+        <div className="absolute hidden sm:block top-0  sm:-left-[34rem] md:-left-[30rem] overflow-hidden">
           <Blob3 />
         </div>
         <div className="w-full sm:w-1/2 mx-auto px-4 pt-8 z-20">
@@ -80,7 +83,32 @@ export default function Home() {
             ></path>
           </svg>
         </div>
-        {/* add floating icons */}
+        <div>
+          <div className="floating-home-icon top-8 sm:top-0 left-8 sm:left-20 rotate-[15deg] bg-[#F5DF4D] ">
+            <PenTool className="stroke-[#990066] size-8 sm:size-12" />
+          </div>
+          <div className="floating-home-icon top-40 right-5 sm:right-20 -rotate-[15deg] bg-[#94D483]">
+            <LetterText
+              size={48}
+              className="stroke-[#990066] size-8 sm:size-12"
+            />
+          </div>
+          <div className="floating-home-icon top-12 sm:top-16 left-[55%] rotate-[15deg]  bg-[#00CCBE]">
+            <NotebookPen
+              size={48}
+              className="stroke-[#990066] size-8 sm:size-12"
+            />
+          </div>
+        </div>
+
+        <div className="absolute bottom-[30%] md:bottom-[20%] xl:bottom-[10%] left-1/2 transform -translate-x-1/2 flex flex-col">
+          <h2 className="text-2xl font-semibold">
+            Ready to turn your ideas into compelling creations?
+          </h2>
+          <Button className="solid-button mt-8 py-4 z-20">
+            Sign up for free
+          </Button>
+        </div>
       </section>
     </main>
   );
