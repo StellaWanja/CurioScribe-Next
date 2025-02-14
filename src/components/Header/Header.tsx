@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { NotebookText, Menu, CircleX } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import ThemeSwitcher from "./ThemeSwitcher";
 import Button from "@/components/ui/Button";

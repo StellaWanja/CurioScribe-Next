@@ -36,3 +36,86 @@ export const mobileLinkVars = {
     },
   },
 };
+
+export const titleVars = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+};
+
+export const subTitleVars = {
+  initial: {
+    opacity: 0,
+    y: 70,
+  },
+
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+};
+
+export const homeCardIcon = {
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  }
+};
+
+export const homeCardTitle = {
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+export const homeCardText = {
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
