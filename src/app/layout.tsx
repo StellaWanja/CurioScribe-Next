@@ -34,8 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body className={`${clsx(mainFont.variable, monoFont.variable)} `} >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem >
           <Header />
           <Suspense fallback={<Spinner />}>{children}</Suspense>
           <Footer />
