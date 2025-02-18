@@ -18,14 +18,15 @@ import {
 import ThemeSwitcher from "../../utils/Theme/ThemeSwitcher";
 
 function SideMenu() {
+  // tooltip state
   const [toolTipIsOpen, setToolTipIsOpen] = useState(false);
   const { refs, floatingStyles, context } = useFloating({
     open: toolTipIsOpen,
     onOpenChange: setToolTipIsOpen,
   });
-
+  // tooltip hover animation
   const hover = useHover(context);
-
+  // tooltip position
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
   return (

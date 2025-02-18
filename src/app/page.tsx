@@ -14,11 +14,14 @@ import Spiral from "@/components/ui/Patterns/Spiral";
 import FloatingIcons from "@/components/ui/FloatingIcons";
 import { subTitleVars, titleVars } from "@/utils/variants";
 
+// landing page
 export default function Home() {
   return (
     <>
+      {/* header */}
       <Header />
 
+      {/* hero section */}
       <main className="text-darkblue dark:text-white">
         <section className="bg-yellow dark:bg-darkblue relative min-h-screen w-full flex flex-col justify-center items-center px-4">
           <div className="absolute hidden sm:block -top-20 z-10 left-0">
@@ -53,6 +56,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* about section */}
         <section className="bg-white dark:bg-darkblue relative min-h-screen w-full pt-20 pb-8 px-8">
           <div className="w-full sm:w-1/2 mx-auto px-4 z-20">
             <h3 className="font-bold text-pink text-3xl pb-8">
@@ -80,6 +84,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* spiral and call to action section */}
         <section className="relative bg-white dark:bg-darkblue min-h-screen w-full">
           <div className="absolute top-0 lg:-top-1/3 2xl:-top-1/2 left-0 w-full">
             <Spiral />
@@ -97,6 +102,7 @@ export default function Home() {
         </section>
       </main>
 
+      {/* footer */}
       <Footer />
     </>
   );

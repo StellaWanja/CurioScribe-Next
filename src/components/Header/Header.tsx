@@ -18,6 +18,7 @@ function Header() {
 
   return (
     <header className="px-4 bg-yellow  text-darkblue dark:bg-darkblue dark:text-white">
+      {/* navbar on large screens */}
       {!isOpen && (
         <nav className="flex justify-between items-center py-4 px-2">
           <Link
@@ -42,7 +43,7 @@ function Header() {
         </nav>
       )}
 
-      {/* sidebar on responsive screens */}
+      {/* navbar on small screens, allowing for a sliding menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

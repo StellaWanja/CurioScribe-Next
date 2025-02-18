@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
+// properties for animation of light / dark button
 const animationProperties = {
   dark: {
     circle: {
@@ -34,16 +35,17 @@ const animationProperties = {
     lines: {
       opacity: 1,
     },
-  },
-  springConfig: { mass: 4, tension: 250, friction: 35 },
+  }
 };
 
 function ThemeSwitcher() {
   const [mount, setMount] = useState(false);
   const { theme, setTheme, systemTheme } = useTheme();
 
+  // get current theme
   const currentTheme = theme === "system" ? systemTheme : theme;
 
+  // get animation state based on current theme
   const animationState =
     animationProperties[currentTheme === "dark" ? "light" : "dark"];
 
