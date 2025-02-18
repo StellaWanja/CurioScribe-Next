@@ -3,9 +3,8 @@ import { Suspense } from "react";
 import { Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
-import ThemeProvider from "@/utils/ThemeProvider";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer.tsx/Footer";
+import ThemeProvider from "@/utils/Theme/ThemeProvider";
+import RespectMotionPreferences from "@/utils/RespectMotionPreferences";
 import Spinner from "@/components/ui/Spinner";
 import "./globals.css";
 
@@ -33,14 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${clsx(mainFont.variable, monoFont.variable)} `} >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem >
-          <Header />
-          <Suspense fallback={<Spinner />}>{children}</Suspense>
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+    <RespectMotionPreferences>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Suspense fallback={<Spinner />}>{children}</Suspense>
+          </ThemeProvider>
+        </body>
+      </html>
+    </RespectMotionPreferences>
   );
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { NotebookText, Menu, CircleX } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcher from "../../utils/Theme/ThemeSwitcher";
 import Button from "@/components/ui/Button";
 import { menuVars, containerVars } from "@/utils/variants";
 
@@ -17,7 +17,7 @@ function Header() {
   }
 
   return (
-    <header className="px-4 bg-yellow  text-black dark:bg-black dark:text-white">
+    <header className="px-4 bg-yellow  text-darkblue dark:bg-darkblue dark:text-white">
       {!isOpen && (
         <nav className="flex justify-between items-center py-4 px-2">
           <Link
@@ -25,7 +25,7 @@ function Header() {
             aria-label="Curioscribe logo"
             className="flex gap-1 items-center"
           >
-            <NotebookText className="stroke-[2.5] w-12 h-12 text-white z-20" />
+            <NotebookText className="stroke-[2.5] w-12 h-12 text-darkblue sm:text-white dark:text-white z-20" />
           </Link>
           <div className="sm:flex hidden gap-2 z-20">
             <Button className="solid-button">Sign up</Button>
@@ -35,14 +35,14 @@ function Header() {
           <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
-            className="sm:hidden flex items-center justify-center text-button text-black bg-white w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad] z-20"
+            className="sm:hidden flex items-center justify-center text-button text-darkblue bg-white w-[3rem] h-[3rem] rounded-xl shadow-md rotate-[0.3rad] z-20"
           >
             <Menu className="stroke-[2.5] " />
           </button>
         </nav>
       )}
 
-      {/* sidebar */}
+      {/* sidebar on responsive screens */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -50,14 +50,14 @@ function Header() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed left-0 top-0 w-full h-screen bg-[#F5DF4D] text-[#262642] dark:bg-[#262642] dark:text-[#FFFFFF] p-10 z-50 origin-top"
+            className="fixed left-0 top-0 w-full h-screen bg-yellow text-darkblue dark:bg-darkblue dark:text-white p-10 z-50 origin-top"
           >
             <div className="flex h-full flex-col py-8 px-4">
               <div className="flex justify-between items-center">
                 <Link
                   href="/"
                   aria-label="Curioscribe logo"
-                  className="flex gap-1 items-center text-[#262642] dark:text-[#FFFFFF]"
+                  className="flex gap-1 items-center text-darkblue dark:text-white"
                 >
                   <NotebookText className="stroke-[2.5] w-10 h-10" />
                 </Link>

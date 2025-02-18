@@ -56,9 +56,9 @@ function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
-      className="flex items-center justify-center border-none cursor-pointer w-[3rem] h-[3rem] rounded-full transition-colors delay-100 ease-in hover:bg-pink hover:text-white"
+      className="hover:text-white"
       type="button"
-      aria-label="Toggle dark/light mode"
+      aria-label="Toggle dark / light mode"
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
