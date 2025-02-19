@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
@@ -37,12 +37,10 @@ export default function RootLayout({
   return (
     // Motion Config to allow for motion disabling if set by user
     <RespectMotionPreferences>
-      {/* suppressHydrationWarning used for dark / light toggle reasons. Only applies on this level. */}
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en">
         <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
           {/* Theme Provider for dark / light mode */}
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {/* Suspense for lazy loading */}
             <Suspense fallback={<Spinner />}>{children}</Suspense>
           </ThemeProvider>
         </body>

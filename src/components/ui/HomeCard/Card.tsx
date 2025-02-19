@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
+import clsx from "clsx";
 
 import { homeCardIcon, homeCardText, homeCardTitle } from "@/utils/variants";
 
@@ -22,7 +23,7 @@ function Card({
         variants={homeCardIcon}
         initial="initial"
         whileInView="animate"
-        className={`homecard-div ${iconBGColour}`}
+        className={clsx("homecard-div", iconBGColour)}
         viewport={{ once: true }}
       >
         {icon}

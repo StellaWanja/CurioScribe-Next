@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 
 function Button({
@@ -8,7 +9,7 @@ function Button({
   className: string;
 }) {
   return (
-    <button className={`${className} font-bold rounded-full py-2 px-6`}>
+    <button className={clsx("font-bold rounded-full py-2 px-6", className)}>
       {children}
     </button>
   );

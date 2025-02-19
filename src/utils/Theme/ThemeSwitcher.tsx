@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+
+import useMounted from "@/hooks/useMounted";
 
 // properties for animation of light / dark button
 const animationProperties = {
@@ -35,11 +37,11 @@ const animationProperties = {
     lines: {
       opacity: 1,
     },
-  }
+  },
 };
 
 function ThemeSwitcher() {
-  const [mount, setMount] = useState(false);
+  const mounted = useMounted();
   const { theme, setTheme, systemTheme } = useTheme();
 
   // get current theme
@@ -49,11 +51,7 @@ function ThemeSwitcher() {
   const animationState =
     animationProperties[currentTheme === "dark" ? "light" : "dark"];
 
-  useEffect(() => {
-    setMount(true);
-  }, []);
-
-  if (!mount) return null;
+  if (!mounted) return null;
 
   return (
     <button

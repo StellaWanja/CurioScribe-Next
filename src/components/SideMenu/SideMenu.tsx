@@ -15,11 +15,19 @@ import {
   LogOut,
 } from "lucide-react";
 
-import ThemeSwitcher from "../../utils/Theme/ThemeSwitcher";
+import ThemeSwitcher from "@/utils/Theme/ThemeSwitcher";
+import clsx from "clsx";
 
-function SideMenu() {
+function SideMenu({
+  sidebarIsClosed,
+  toggleSidebar,
+}: {
+  sidebarIsClosed: boolean;
+  toggleSidebar: () => void;
+}) {
   // tooltip state
   const [toolTipIsOpen, setToolTipIsOpen] = useState(false);
+
   const { refs, floatingStyles, context } = useFloating({
     open: toolTipIsOpen,
     onOpenChange: setToolTipIsOpen,
@@ -30,23 +38,27 @@ function SideMenu() {
   const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
 
   return (
-    <div className="py-8 px-4 relative min-h-screen">
-      <div className="flex items-center justify-between">
-        <Link
-          href="/"
-          aria-label="Curioscribe logo"
-          className="flex gap-1 items-center"
-        >
-          <NotebookText className="stroke-[2.5] w-8 h-8 text-white" />
-          <span className="font-bold">CurioScribe</span>
-        </Link>
+    <div
+      className={clsx(
+        "py-8 relative min-h-screen",
+        sidebarIsClosed ? "px-2" : "px-4"
+      )}
+    >
+      <div
+        className={clsx(
+          "flex mb-8",
+          sidebarIsClosed ? "justify-center" : "justify-end"
+        )}
+      >
         <button
           aria-describedby="tooltip"
           ref={refs.setReference}
           {...getReferenceProps()}
+          onClick={toggleSidebar}
         >
           <PanelLeftClose />
         </button>
+        {/* tooltip */}
         {toolTipIsOpen && (
           <div
             id="tooltip"
@@ -56,53 +68,107 @@ function SideMenu() {
             {...getFloatingProps()}
             className="bg-yellow px-3 py-2 text-darkgrey text-sm font-semibold rounded-md"
           >
-            Close Sidebar
+            {sidebarIsClosed ? "Open Sidebar" : "Close Sidebar"}
           </div>
         )}
       </div>
 
+      <Link
+        href="/"
+        aria-label="Curioscribe logo"
+        className={clsx(
+          "flex gap-1 items-center",
+          sidebarIsClosed ? "justify-center" : "justify-start"
+        )}
+      >
+        <NotebookText className="stroke-[2.5] w-8 h-8 text-white" />
+        {!sidebarIsClosed && <span className="font-bold">CurioScribe</span>}
+      </Link>
+
       <div className="flex flex-col gap-2 mt-8 text-lightgrey text-sm">
-        <Link href="/" className="sidebar-links">
+        <Link
+          href="/"
+          className={clsx(
+            "sidebar-links",
+            sidebarIsClosed && "flex justify-center"
+          )}
+        >
           <House />
-          <span>Home</span>
+          {!sidebarIsClosed && <span>Home</span>}
         </Link>
-        <Link href="" className="sidebar-links">
+        <Link
+          href="/"
+          className={clsx(
+            "sidebar-links",
+            sidebarIsClosed && "flex justify-center"
+          )}
+        >
           <Blocks />
-          <span>Create New</span>
+          {!sidebarIsClosed && <span>Create New</span>}
         </Link>
-        <Link href="" className="sidebar-links">
+        <Link
+          href="/"
+          className={clsx(
+            "sidebar-links",
+            sidebarIsClosed && "flex justify-center"
+          )}
+        >
           <File />
-          <span>Templates</span>
+          {!sidebarIsClosed && <span>Templates</span>}
         </Link>
 
         <div className="border-t-2 border-white my-8 opacity-50" />
 
         <div className="flex gap-3 items-center text-white">
           <div className="w-8 h-8 rounded-full bg-white" />
-          <span>Happy Llama</span>
+          {!sidebarIsClosed && <span>Happy Llama</span>}
         </div>
 
         <div className="flex flex-col gap-2 mt-4 ml-4">
-          <Link href="" className="sidebar-links">
+          <Link
+            href="/"
+            className={clsx(
+              "sidebar-links",
+              sidebarIsClosed && "flex justify-center"
+            )}
+          >
             <Folders />
-            <span>My Projects</span>
+            {!sidebarIsClosed && <span>My Projects</span>}
           </Link>
-          <Link href="" className="sidebar-links">
+          <Link
+            href="/"
+            className={clsx(
+              "sidebar-links",
+              sidebarIsClosed && "flex justify-center"
+            )}
+          >
             <Settings />
-            <span>Settings</span>
+            {!sidebarIsClosed && <span>Settings</span>}
           </Link>
         </div>
-        <Link href="" className="sidebar-links">
+        <Link
+          href="/"
+          className={clsx(
+            "sidebar-links",
+            sidebarIsClosed && "flex justify-center"
+          )}
+        >
           <CircleHelp />
-          <span>Help & Support</span>
+          {!sidebarIsClosed && <span>Help & Support</span>}
         </Link>
-        <Link href="" className="sidebar-links">
+        <Link
+          href="/"
+          className={clsx(
+            "sidebar-links",
+            sidebarIsClosed && "flex justify-center"
+          )}
+        >
           <LogOut />
-          <span>Log Out</span>
+          {!sidebarIsClosed && <span>Log Out</span>}
         </Link>
       </div>
 
-      <div aria-label="Theme Switcher" className="absolute bottom-8">
+      <div aria-label="Theme Switcher" className="absolute bottom-12 sm:left-10">
         <ThemeSwitcher />
       </div>
     </div>

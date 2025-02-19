@@ -84,7 +84,7 @@ function Header() {
                   <Button className="text-button">Log in</Button>
                 </div>
               </motion.div>
-              <ThemeSwitcher />
+              {/* <ThemeSwitcher /> */}
             </div>
           </motion.div>
         )}
