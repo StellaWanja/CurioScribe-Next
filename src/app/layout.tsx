@@ -35,11 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Motion Config to allow for motion disabling if set by user
     <RespectMotionPreferences>
       <html lang="en">
         <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
-          {/* Theme Provider for dark / light mode */}
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Suspense fallback={<Spinner />}>{children}</Suspense>
           </ThemeProvider>

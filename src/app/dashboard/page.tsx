@@ -11,8 +11,6 @@ function Dashboard() {
   const [closedSidebar, setClosedSidebar] = useState(false);
   const { width } = useWindowsDimensions();
 
-  console.log(width);
-
   useEffect(() => {
     if (width !== null && width < 768) {
       setClosedSidebar(true);
@@ -22,7 +20,7 @@ function Dashboard() {
   return (
     <main
       className={clsx(
-        "w-full min-h-screen bg-darkblue grid",
+        "w-full min-h-screen bg-darkblue grid transition-[grid-template-columns] duration-300 ease-in-out",
         closedSidebar ? "grid-cols-[80px_1fr]" : "grid-cols-[180px_1fr]"
       )}
     >
