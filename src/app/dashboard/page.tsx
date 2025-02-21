@@ -6,6 +6,7 @@ import clsx from "clsx";
 import useWindowsDimensions from "@/hooks/useWindowsDimensions";
 
 import SideMenu from "@/components/SideMenu/SideMenu";
+import HomeDashboard from "./HomeDashboard";
 
 function Dashboard() {
   const [closedSidebar, setClosedSidebar] = useState(false);
@@ -20,7 +21,7 @@ function Dashboard() {
   return (
     <main
       className={clsx(
-        "w-full min-h-screen bg-darkblue grid transition-[grid-template-columns] duration-300 ease-in-out",
+        "font-sans w-full min-h-screen bg-darkblue grid transition-[grid-template-columns] duration-300 ease-in-out",
         closedSidebar ? "grid-cols-[80px_1fr]" : "grid-cols-[180px_1fr]"
       )}
     >
@@ -34,7 +35,7 @@ function Dashboard() {
 
       {/* dashboard */}
       <section className="bg-white dark:bg-dashboardblue text-darkgrey dark:text-white rounded-lg m-4">
-        Dashboard
+        <HomeDashboard />
       </section>
     </main>
   );

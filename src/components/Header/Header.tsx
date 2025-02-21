@@ -17,7 +17,7 @@ function Header() {
   }
 
   return (
-    <header className="px-4 bg-yellow  text-darkblue dark:bg-darkblue dark:text-white">
+    <header className="font-sans px-4 bg-yellow  text-darkblue dark:bg-darkblue dark:text-white">
       {/* navbar on large screens */}
       {!isOpen && (
         <nav className="flex justify-between items-center py-4 px-2">

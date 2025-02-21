@@ -33,7 +33,7 @@ export default function Home() {
             animate="animate"
             className="relative z-20"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-black">
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-8xl font-black">
               CurioScribe
             </h1>
             <div className="absolute -top-5 -right-5">
@@ -48,7 +48,7 @@ export default function Home() {
           >
             Unleash Your Creativity with AI-Powered Content Generation.
           </motion.p>
-          <Button className="solid-button mt-8 py-4 z-20">
+          <Button className="solid-button font-sans mt-8 py-4 z-20">
             Sign up for free
           </Button>
           <div className="absolute bottom-0 right-0">
@@ -58,10 +58,10 @@ export default function Home() {
 
         {/* about section */}
         <section className="bg-white dark:bg-darkblue relative min-h-screen w-full pt-20 pb-8 px-8">
-          <div className="w-full sm:w-1/2 mx-auto px-4 z-20">
-            <h3 className="font-bold text-pink text-3xl pb-8">
+          <div className="font-sans w-full sm:w-1/2 mx-auto px-4 z-20">
+            <h2 className="font-bold text-pink text-3xl pb-8">
               Welcome to CurioScribe: Unleash Your Creative Potential!
-            </h3>
+            </h2>
             <p className="pb-4 text-xl">
               At CurioScribe, we believe that creativity knows no bounds.
               Powered by cutting-edge AI technology, our platform empowers you
@@ -79,7 +79,7 @@ export default function Home() {
             <Blob3 />
           </div>
           <div className="w-full sm:w-1/2 mx-auto px-4 pt-8 z-20">
-            <h3 className="font-bold text-pink text-3xl">Why CurioScribe?</h3>
+            <h3 className="font-bold text-pink text-3xl font-sans">Why CurioScribe?</h3>
             <HomeCard />
           </div>
         </section>
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <FloatingIcons />
 
-          <div className="absolute bottom-[30%] md:bottom-[20%] xl:bottom-[10%] left-1/2 transform -translate-x-1/2 flex flex-col">
+          <div className="font-sans absolute bottom-[30%] md:bottom-[20%] xl:bottom-[10%] left-1/2 transform -translate-x-1/2 flex flex-col">
             <h2 className="text-2xl font-semibold">
               Ready to turn your ideas into compelling creations?
             </h2>

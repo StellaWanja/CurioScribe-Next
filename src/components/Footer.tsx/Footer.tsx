@@ -6,7 +6,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full h-[30vh] bg-darkblue dark:bg-pink text-white pt-8 ">
+    <footer className="font-sans w-full h-[30vh] bg-darkblue dark:bg-pink text-white pt-8 ">
       <div className="flex justify-around">
         <div>
           <NotebookText className="stroke-[2.5] w-12 h-12 " />

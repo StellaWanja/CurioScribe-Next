@@ -29,7 +29,7 @@ function Card({
         {icon}
       </motion.div>
       <div className="mt-10">
-        <motion.h4
+        <motion.h3
           variants={homeCardTitle}
           initial="initial"
           whileInView="animate"
@@ -37,12 +37,12 @@ function Card({
           viewport={{ once: true }}
         >
           {title}
-        </motion.h4>
+        </motion.h3>
         <motion.p
           variants={homeCardText}
           initial="initial"
           whileInView="animate"
-          className="mt-2 text-lg"
+          className="mt-2 text-lg "
           viewport={{ once: true }}
         >
           {text}

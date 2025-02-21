@@ -5,7 +5,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 import useMounted from "@/hooks/useMounted";
 
-function ThemeProvider({
+function ThemeToggleProvider({
   children,
   ...props
 }: React.ComponentPropsWithoutRef<typeof NextThemesProvider>) {
@@ -15,4 +15,4 @@ function ThemeProvider({
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
 
-export default ThemeProvider;
+export default ThemeToggleProvider;

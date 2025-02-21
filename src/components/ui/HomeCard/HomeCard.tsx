@@ -5,7 +5,7 @@ import Card from "./Card";
 
 function HomeCard() {
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="font-sans w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
       <Card
         icon={<Palette size={48} className="stroke-[#990066]" />}
         iconBGColour="bg-[#FDEEF8]"

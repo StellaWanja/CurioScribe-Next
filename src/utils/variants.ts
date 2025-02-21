@@ -119,3 +119,18 @@ export const homeCardText = {
     once: true,
   },
 };
+
+export const sidebarLinkVariants = {
+  open: {
+    opacity: 1,
+    x: 0,
+    clipPath: "inset(0% 0% 0% 0%)",
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+  closed: {
+    opacity: 0,
+    x: -10,
+    clipPath: "inset(0% 100% 0% 0%)",
+    transition: { duration: 0.25, ease: "easeIn" },
+  },
+};

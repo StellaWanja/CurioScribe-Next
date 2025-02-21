@@ -10,6 +10,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
+import { motion } from "motion/react";
+
+import { sidebarLinkVariants } from "@/utils/variants";
 
 const sidebarLinks = [
   { id: 1, href: "", icon: <House />, label: "Home" },
@@ -38,20 +41,20 @@ export function SidebarLink({
     <Link
       href={href}
       className={clsx(
-        "sidebar-links transition-all duration-300 ease-in-out",
+        "sidebar-links",
         sidebarIsClosed && "flex justify-center"
       )}
     >
       {icon}
       {!sidebarIsClosed && (
-        <span
-          className={clsx(
-            "inline-block overflow-hidden transition-[max-width,opacity] duration-500 ease-in-out",
-            sidebarIsClosed ? "max-w-0 opacity-0" : "max-w-[150px] opacity-100"
-          )}
+        <motion.span
+          initial="closed"
+          animate={sidebarIsClosed ? "closed" : "open"}
+          variants={sidebarLinkVariants}
+          className="overflow-hidden whitespace-nowrap"
         >
           {label}
-        </span>
+        </motion.span>
       )}
     </Link>
   );
@@ -69,7 +72,7 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
         />
       ))}
 
-      {/* line */}
+      {/* divider */}
       <div className="border-t-2 border-white my-8 opacity-50" />
 
       {/* Profile Section */}
@@ -78,10 +81,18 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
           <div
             className={clsx(
               "w-8 h-8 rounded-full bg-white",
-              sidebarIsClosed ? "ml-4" : "ml-0"
+              sidebarIsClosed ? "mx-auto" : "ml-2"
             )}
           />
-          {!sidebarIsClosed && <span>Happy Llama</span>}
+          {!sidebarIsClosed && (
+            <motion.span
+              initial="closed"
+              animate={sidebarIsClosed ? "closed" : "open"}
+              variants={sidebarLinkVariants}
+            >
+              Happy Llama
+            </motion.span>
+          )}
         </div>
 
         <div

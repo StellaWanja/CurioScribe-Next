@@ -17,7 +17,7 @@ function SideMenu({
   return (
     <div
       className={clsx(
-        "py-8 relative min-h-screen ",
+        "py-8 relative min-h-screen text-white",
         sidebarIsClosed ? "px-2" : "px-4"
       )}
     >

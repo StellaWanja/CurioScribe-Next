@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 import { Poppins, Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 
-import ThemeProvider from "@/utils/Theme/ThemeProvider";
+import ThemeToggleProvider from "@/utils/Theme/ThemeToggleProvider";
 import RespectMotionPreferences from "@/utils/RespectMotionPreferences";
 import Spinner from "@/components/ui/Spinner";
 import "./globals.css";
@@ -38,9 +38,14 @@ export default function RootLayout({
     <RespectMotionPreferences>
       <html lang="en">
         <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Suspense fallback={<Spinner />}>{children}</Suspense>
-          </ThemeProvider>
+            {/* ThemeToggleProvider for light/dark theme */}
+            <ThemeToggleProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+            >
+              <Suspense fallback={<Spinner />}>{children}</Suspense>
+            </ThemeToggleProvider>
         </body>
       </html>
     </RespectMotionPreferences>
