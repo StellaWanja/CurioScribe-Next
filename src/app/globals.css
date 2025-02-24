@@ -22,4 +22,7 @@
   .sidebar-links {
     @apply flex gap-3 items-center hover:bg-dashboardblue hover:text-white p-2 rounded-md;
   }
+  .input {
+    @apply border-2 border-darkblue dark:border-lightgrey dark:bg-dashboardblue focus:outline-none;
+  }
 }

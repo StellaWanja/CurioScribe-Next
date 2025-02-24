@@ -4,12 +4,14 @@ import React from "react";
 function Button({
   children,
   className,
+  type
 }: {
   children: string;
   className: string;
+  type: "submit" | "button"
 }) {
   return (
-    <button className={clsx("font-bold rounded-full py-2 px-6", className)}>
+    <button type={type} className={clsx("font-bold rounded-full py-2 px-6", className)}>
       {children}
     </button>
   );

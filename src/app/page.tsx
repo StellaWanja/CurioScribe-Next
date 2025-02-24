@@ -2,13 +2,13 @@
 
 import { motion } from "motion/react";
 import { BookOpenText } from "lucide-react";
+import Link from "next/link";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer.tsx/Footer";
 import Blob1 from "@/components/ui/Blobs/Blob1";
 import Blob2 from "@/components/ui/Blobs/Blob2";
 import Blob3 from "@/components/ui/Blobs/Blob3";
-import Button from "@/components/ui/Button";
 import HomeCard from "@/components/ui/HomeCard/HomeCard";
 import Spiral from "@/components/ui/Patterns/Spiral";
 import FloatingIcons from "@/components/ui/FloatingIcons";
@@ -48,9 +48,12 @@ export default function Home() {
           >
             Unleash Your Creativity with AI-Powered Content Generation.
           </motion.p>
-          <Button className="solid-button font-sans mt-8 py-4 z-20">
-            Sign up for free
-          </Button>
+          <Link
+            href=""
+            className="solid-button font-bold rounded-full px-6 font-sans mt-8 py-4 z-20"
+          >
+            Try once for free
+          </Link>
           <div className="absolute bottom-0 right-0">
             <Blob2 />
           </div>
@@ -79,7 +82,9 @@ export default function Home() {
             <Blob3 />
           </div>
           <div className="w-full sm:w-1/2 mx-auto px-4 pt-8 z-20">
-            <h3 className="font-bold text-pink text-3xl font-sans">Why CurioScribe?</h3>
+            <h3 className="font-bold text-pink text-3xl font-sans">
+              Why CurioScribe?
+            </h3>
             <HomeCard />
           </div>
         </section>
@@ -95,9 +100,12 @@ export default function Home() {
             <h2 className="text-2xl font-semibold">
               Ready to turn your ideas into compelling creations?
             </h2>
-            <Button className="solid-button mt-8 py-4 z-20">
+            <Link
+              href=""
+              className="solid-button font-bold rounded-full text-center px-6 mt-8 py-4 z-20"
+            >
               Sign up for free
-            </Button>
+            </Link>
           </div>
         </section>
       </main>

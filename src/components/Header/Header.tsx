@@ -6,7 +6,6 @@ import { NotebookText, Menu, CircleX } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 import ThemeSwitcher from "../../utils/Theme/ThemeSwitcher";
-import Button from "@/components/ui/Button";
 import { menuVars, containerVars } from "@/utils/variants";
 
 function Header() {
@@ -29,8 +28,18 @@ function Header() {
             <NotebookText className="stroke-[2.5] w-12 h-12 text-darkblue sm:text-white dark:text-white z-20" />
           </Link>
           <div className="sm:flex hidden gap-2 z-20">
-            <Button className="solid-button">Sign up</Button>
-            <Button className="text-button">Log in</Button>
+            <Link
+              href="/sign-up"
+              className="solid-button font-bold rounded-full py-2 px-6"
+            >
+              Sign up
+            </Link>
+            <Link
+              href="/sign-in"
+              className="text-button  font-bold rounded-full py-2 px-6"
+            >
+              Log in
+            </Link>
             <ThemeSwitcher />
           </div>
           <button
@@ -80,8 +89,18 @@ function Header() {
                 className="flex flex-col h-full justify-center items-center gap-4 "
               >
                 <div className="overflow-hidden flex flex-col items-center gap-2">
-                  <Button className="solid-button">Sign up</Button>
-                  <Button className="text-button">Log in</Button>
+                  <Link
+                    href="/sign-up"
+                    className="solid-button font-bold rounded-full py-2 px-6"
+                  >
+                    Sign up
+                  </Link>
+                  <Link
+                    href="/sign-in"
+                    className="text-button  font-bold rounded-full py-2 px-6"
+                  >
+                    Log in
+                  </Link>
                 </div>
               </motion.div>
               {/* <ThemeSwitcher /> */}

@@ -24,7 +24,7 @@ function HomeDashboard() {
           <input
             type="text"
             placeholder="Search your project"
-            className="w-full pl-10 pr-4 py-2 border-2 border-darkblue dark:border-lightgrey dark:bg-dashboardblue rounded-lg focus:outline-none"
+            className="w-full pl-10 pr-4 py-2 input rounded-lg"
           />
         </div>
       </div>
@@ -40,7 +40,9 @@ function HomeDashboard() {
       <div className="mt-8 ">
         <div className="flex items-center justify-between">
           <h2 className="font-medium text-lg">Recent Content</h2>
-          <Link href="" className="hover:underline">See All</Link>
+          <Link href="" className="hover:underline">
+            See All
+          </Link>
         </div>
 
         <div className="mt-4 w-full bg-dashboardblue rounded-md p-4">
