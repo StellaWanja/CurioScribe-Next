@@ -4,18 +4,27 @@ import React, { useState } from "react";
 import { Loader } from "lucide-react";
 import { ClerkAPIError } from "@clerk/types";
 
+import Button from "@/components/ui/Button";
+
+type VerificationProps = {
+  isLoading: boolean;
+  errors: ClerkAPIError[] | undefined;
+  handleVerification: (
+    event: React.FormEvent<HTMLFormElement>,
+    code: string
+  ) => void;
+};
+
 function Verification({
   isLoading,
   errors,
-}: {
-  isLoading: boolean;
-  errors: ClerkAPIError[];
-}) {
+  handleVerification,
+}: VerificationProps) {
   const [code, setCode] = useState("");
 
   return (
     <div className="p-6 pt-0">
-      <form>
+      <form onSubmit={(e) => handleVerification(e, code)}>
         <div className="flex flex-col gap-2">
           <label htmlFor="code" className="text-lg">
             Verification Code:
@@ -37,12 +46,12 @@ function Verification({
           </p>
         )}
 
-        <button
+        <Button
           type="submit"
-          className="solid-button p-2 mt-4 w-full rounded-md"
+          className="solid-button flex justify-center items-center gap-4  p-2 mt-4 w-full rounded-md"
         >
           Verify Email {isLoading && <Loader className="animate-spin" />}
-        </button>
+        </Button>
       </form>
     </div>
   );

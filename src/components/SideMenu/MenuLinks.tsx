@@ -13,6 +13,7 @@ import clsx from "clsx";
 import { motion } from "motion/react";
 
 import { sidebarLinkVariants } from "@/utils/variants";
+import ProfileSection from "./ProfileSection";
 
 const sidebarLinks = [
   { id: 1, href: "", icon: <House />, label: "Home" },
@@ -77,23 +78,7 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
 
       {/* Profile Section */}
       <div>
-        <div className="flex gap-3 items-center text-white">
-          <div
-            className={clsx(
-              "w-8 h-8 rounded-full bg-white",
-              sidebarIsClosed ? "mx-auto" : "ml-2"
-            )}
-          />
-          {!sidebarIsClosed && (
-            <motion.span
-              initial="closed"
-              animate={sidebarIsClosed ? "closed" : "open"}
-              variants={sidebarLinkVariants}
-            >
-              Happy Llama
-            </motion.span>
-          )}
-        </div>
+        <ProfileSection sidebarIsClosed={sidebarIsClosed} />
 
         <div
           className={clsx(

@@ -12,7 +12,7 @@ const cardContent = [
   { id: 2, icon: <Brush />, title: "Create an imaginative tale", link: "" },
 ];
 
-function Card() {
+function DashboardCard() {
   return (
     <div className="flex gap-8 flex-col sm:flex-row">
       {cardContent.map(({ id, icon, title, link }) => (
@@ -41,4 +41,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default DashboardCard;

@@ -2,7 +2,7 @@ import React from "react";
 import { Search } from "lucide-react";
 import Link from "next/link";
 
-import Card from "./Card";
+import DashboardCard from "./DashboardCard";
 
 const currentHour = new Date().getHours();
 const time =
@@ -10,7 +10,7 @@ const time =
   (currentHour < 18 && "Afternooon") ||
   "Evening";
 
-function HomeDashboard() {
+function DashboardContent() {
   return (
     <div className="py-8 px-5">
       <div className="flex flex-col gap-4 md:flex-row justify-between md:items-center ">
@@ -34,7 +34,7 @@ function HomeDashboard() {
           What will you create today?
         </h1>
 
-        <Card />
+        <DashboardCard />
       </div>
 
       <div className="mt-8 ">
@@ -53,4 +53,4 @@ function HomeDashboard() {
   );
 }
 
-export default HomeDashboard;
+export default DashboardContent;

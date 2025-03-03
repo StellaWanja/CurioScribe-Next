@@ -1,20 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { NotebookText } from "lucide-react";
 
 import useSignupHandler from "@/hooks/useSignupHandler";
+import useVerificationHandler from "@/hooks/useVerificationHandler";
 
 import Form from "./Form";
 import Verification from "./Verification";
 import GoogleSignUp from "./GoogleSignUp";
 
 function SignUpPage() {
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { handleSubmit, errors, isLoading, pendingVerification } =
-    useSignupHandler();
+  const {
+    handleSubmit,
+    pendingVerification,
+    errors: signUpErrors,
+    isLoading: isSignUpLoading,
+  } = useSignupHandler();
+  
+  const {
+    handleVerification,
+    errors: verificationErrors,
+    isLoading: isVerifyLoading,
+  } = useVerificationHandler();
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center font-sans bg-darkblue">
@@ -28,18 +36,19 @@ function SignUpPage() {
 
         {!pendingVerification ? (
           <Form
-            errors={errors ?? []}
-            handleSubmit={(e) => handleSubmit(e, emailAddress, password)}
-            emailAddress={emailAddress}
-            setEmailAddress={setEmailAddress}
-            password={password}
-            setPassword={setPassword}
+            errors={signUpErrors ?? []}
+            handleSubmit={handleSubmit}
+            isLoading={isSignUpLoading}
           />
         ) : (
-          <Verification isLoading={isLoading} errors={errors ?? []} />
+          <Verification
+            handleVerification={handleVerification}
+            errors={verificationErrors ?? []}
+            isLoading={isVerifyLoading}
+          />
         )}
 
-        {!pendingVerification && <GoogleSignUp isLoading={isLoading} />}
+        {!pendingVerification && <GoogleSignUp />}
       </div>
     </div>
   );

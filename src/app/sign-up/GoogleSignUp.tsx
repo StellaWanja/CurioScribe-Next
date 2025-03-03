@@ -1,7 +1,6 @@
 import React from "react";
-import { Loader } from "lucide-react";
 
-function GoogleSignUp({ isLoading }: { isLoading: boolean }) {
+function GoogleSignUp() {
   return (
     <div className="flex items-center justify-center p-6 pt-0">
       <div className="rounded-xl bg-darkblue p-5 w-full">
@@ -31,7 +30,7 @@ function GoogleSignUp({ isLoading }: { isLoading: boolean }) {
               </clipPath>
             </defs>
           </svg>
-          Sign up with Google {isLoading && <Loader className="animate-spin" />}
+          Sign up with Google 
         </button>
       </div>
     </div>

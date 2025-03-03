@@ -3,47 +3,62 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ClerkAPIError } from "@clerk/types";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader } from "lucide-react";
 
 import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 type FormProps = {
   errors: ClerkAPIError[];
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  emailAddress: string;
-  setEmailAddress: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit: (
+    event: React.FormEvent<HTMLFormElement>,
+    firstName: string,
+    lastName: string,
+    emailAddress: string,
+    password: string
+  ) => void;
+  isLoading: boolean;
 };
 
-function Form({
-  errors,
-  handleSubmit,
-  emailAddress,
-  setEmailAddress,
-  password,
-  setPassword,
-}: FormProps) {
+function Form({ errors, handleSubmit, isLoading }: FormProps) {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(true);
 
   return (
     <div className="p-6 pt-0">
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) =>
+          handleSubmit(e, firstName, lastName, emailAddress, password)
+        }
+      >
+        <Input
+          type="text"
+          id="firstName"
+          label="First Name"
+          value={firstName}
+          onChangeFn={(event) => setFirstName(event.target.value)}
+        />
+
+        <Input
+          type="text"
+          id="lastName"
+          label="Last Name"
+          value={lastName}
+          onChangeFn={(event) => setLastName(event.target.value)}
+        />
+
+        <Input
+          type="email"
+          id="emailAddress"
+          label="Email"
+          value={emailAddress}
+          onChangeFn={(event) => setEmailAddress(event.target.value)}
+        />
+
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="text-lg">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={emailAddress}
-            onChange={(event) => setEmailAddress(event.target.value)}
-            placeholder="Email"
-            required
-            className="input rounded-md p-2"
-          />
-        </div>
-        <div className="flex flex-col mt-4 gap-2">
           <label htmlFor="password" className="text-lg">
             Password:
           </label>
@@ -77,8 +92,11 @@ function Form({
           </p>
         )}
 
-        <Button type="submit" className="solid-button mt-4 w-full rounded-md">
-          Sign Up
+        <Button
+          type="submit"
+          className="solid-button flex justify-center items-center gap-4 mt-4 w-full rounded-md"
+        >
+          Sign Up {isLoading && <Loader className="animate-spin" />}
         </Button>
       </form>
 

@@ -6,7 +6,7 @@ function Button({
   className,
   type
 }: {
-  children: string;
+  children: string | React.ReactNode;
   className: string;
   type: "submit" | "button"
 }) {

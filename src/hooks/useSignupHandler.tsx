@@ -9,13 +9,15 @@ import Spinner from "@/components/ui/Spinner";
 
 function useSignupHandler() {
   const { isLoaded, signUp } = useSignUp();
-  
+
   const [errors, setErrors] = useState<ClerkAPIError[]>();
   const [isLoading, setIsLoading] = useState(false);
   const [pendingVerification, setPendingVerification] = useState(false);
 
   async function handleSubmit(
     event: React.FormEvent<HTMLFormElement>,
+    firstName: string,
+    lastName: string,
     email: string,
     password: string
   ) {
@@ -30,7 +32,12 @@ function useSignupHandler() {
     }
 
     try {
-      await signUp.create({ emailAddress: email, password });
+      await signUp.create({
+        firstName,
+        lastName,
+        emailAddress: email,
+        password,
+      });
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
       setPendingVerification(true);
     } catch (err) {

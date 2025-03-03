@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
 import { Poppins, Nunito_Sans } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import clsx from "clsx";
 
 import ThemeToggleProvider from "@/utils/Theme/ThemeToggleProvider";
@@ -35,9 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <RespectMotionPreferences>
-      <html lang="en">
-        <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
+    <ClerkProvider>
+      <RespectMotionPreferences>
+        <html lang="en">
+          <body className={`${clsx(mainFont.variable, monoFont.variable)} `}>
             {/* ThemeToggleProvider for light/dark theme */}
             <ThemeToggleProvider
               attribute="class"
@@ -46,8 +48,9 @@ export default function RootLayout({
             >
               <Suspense fallback={<Spinner />}>{children}</Suspense>
             </ThemeToggleProvider>
-        </body>
-      </html>
-    </RespectMotionPreferences>
+          </body>
+        </html>
+      </RespectMotionPreferences>
+    </ClerkProvider>
   );
 }

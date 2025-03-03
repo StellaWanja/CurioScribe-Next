@@ -1,3 +1,5 @@
+export const WEB_TITLE = "CurioScribe";
+
 export const ARTICLE_TOPICS = [
   { id: "general", label: "General Topic" },
   { id: "tech", label: "Technology" },
