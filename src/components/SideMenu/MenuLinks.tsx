@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Blocks,
@@ -11,16 +13,17 @@ import {
 import Link from "next/link";
 import clsx from "clsx";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 
 import { sidebarLinkVariants } from "@/utils/variants";
 import ProfileSection from "./ProfileSection";
 
 const sidebarLinks = [
-  { id: 1, href: "", icon: <House />, label: "Home" },
+  { id: 1, href: "/dashboard", icon: <House />, label: "Home" },
   { id: 2, href: "", icon: <Blocks />, label: "Create New" },
   { id: 3, href: "", icon: <File />, label: "Templates" },
   { id: 4, href: "", icon: <Folders />, label: "Projects" },
-  { id: 5, href: "", icon: <Settings />, label: "Settings" },
+  { id: 5, href: "/settings", icon: <Settings />, label: "Settings" },
   { id: 6, href: "", icon: <CircleHelp />, label: "FAQ" },
   { id: 7, href: "", icon: <LogOut />, label: "Log Out" },
 ];
@@ -38,12 +41,16 @@ export function SidebarLink({
   icon,
   label,
 }: SidebarLinkProps) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <Link
       href={href}
       className={clsx(
         "sidebar-links",
-        sidebarIsClosed && "flex justify-center"
+        sidebarIsClosed && "flex justify-center",
+        isActive && "active-sidebar-links"
       )}
     >
       {icon}

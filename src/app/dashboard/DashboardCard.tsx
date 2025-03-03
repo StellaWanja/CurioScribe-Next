@@ -18,10 +18,10 @@ function DashboardCard() {
       {cardContent.map(({ id, icon, title, link }) => (
         <div
           key={id}
-          className="font-sans w-full sm:w-1/2 bg-dashboardblue rounded-2xl p-8"
+          className="font-sans w-full sm:w-1/2 bg-dashboardblue dark:bg-darkblue rounded-2xl p-8"
         >
           <div className="flex justify-between items-center">
-            <div className="bg-white w-10 h-10 rounded-full flex justify-center items-center">
+            <div className="bg-white dark:text-darkblue w-10 h-10 rounded-full flex justify-center items-center">
               {icon}
             </div>
             <Link href={link}>

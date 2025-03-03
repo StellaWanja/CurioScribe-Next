@@ -1,8 +1,13 @@
+"use client";
+
 import React from "react";
 import { Search } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 import DashboardCard from "./DashboardCard";
+import Spinner from "../../components/ui/Spinner";
 
 const currentHour = new Date().getHours();
 const time =
@@ -10,11 +15,24 @@ const time =
   (currentHour < 18 && "Afternooon") ||
   "Evening";
 
-function DashboardContent() {
+function Dashboard() {
+  const { isSignedIn, user, isLoaded } = useUser();
+  const router = useRouter();
+
+  if (!isLoaded) {
+    return <Spinner />;
+  }
+
+  if (!isSignedIn || !user) {
+    router.push("/sign-in");
+  }
+
   return (
     <div className="py-8 px-5">
       <div className="flex flex-col gap-4 md:flex-row justify-between md:items-center ">
-        <h1 className="font-medium text-lg">👋 Good {time}, Happy!</h1>
+        <h1 className="font-medium text-lg">
+          👋 Good {time}, {user?.firstName}!
+        </h1>
 
         <div className="relative w-full max-w-md">
           <Search
@@ -45,7 +63,7 @@ function DashboardContent() {
           </Link>
         </div>
 
-        <div className="mt-4 w-full bg-dashboardblue rounded-md p-4">
+        <div className="mt-4 w-full bg-dashboardblue dark:bg-darkblue rounded-md p-4">
           <h2 className="text-white">Title text</h2>
         </div>
       </div>
@@ -53,4 +71,4 @@ function DashboardContent() {
   );
 }
 
-export default DashboardContent;
+export default Dashboard;

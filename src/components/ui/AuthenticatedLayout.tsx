@@ -6,9 +6,8 @@ import clsx from "clsx";
 import useWindowsDimensions from "@/hooks/useWindowsDimensions";
 
 import SideMenu from "@/components/SideMenu/SideMenu";
-import DashboardContent from "./DashboardContent";
 
-function Dashboard() {
+function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   const [closedSidebar, setClosedSidebar] = useState(false);
   const { width } = useWindowsDimensions();
 
@@ -35,10 +34,10 @@ function Dashboard() {
 
       {/* dashboard */}
       <section className="bg-white dark:bg-dashboardblue text-darkgrey dark:text-white rounded-lg m-4">
-        <DashboardContent />
+        {children}
       </section>
     </main>
   );
 }
 
-export default Dashboard;
+export default AuthenticatedLayout;

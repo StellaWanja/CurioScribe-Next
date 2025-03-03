@@ -1,6 +1,6 @@
-import AuthenticatedLayout from "@/components/ui/AuthenticatedLayout";
-import Dashboard from "./Dashboard";
 import { WEB_TITLE } from "@/constants";
+import Settings from "./Settings";
+import AuthenticatedLayout from "@/components/ui/AuthenticatedLayout";
 
 export async function generateMetadata() {
   return {
@@ -11,7 +11,7 @@ export async function generateMetadata() {
 export default function DashboardPage() {
   return (
     <AuthenticatedLayout>
-      <Dashboard />
+      <Settings />
     </AuthenticatedLayout>
   );
 }
