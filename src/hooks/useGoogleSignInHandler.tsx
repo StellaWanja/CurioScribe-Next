@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useSignUp } from "@clerk/nextjs";
+import { useSignIn } from "@clerk/nextjs";
 import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { ClerkAPIError } from "@clerk/types";
 
-function useGoogleSignUpHandler() {
-  const { isLoaded, signUp } = useSignUp();
+function useGoogleSignInHandler() {
+  const { isLoaded, signIn } = useSignIn();
 
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<ClerkAPIError[]>();
 
-  async function handleGoogleSignUp() {
+  async function handleGoogleSignin() {
     // Clear any errors that may have occurred during previous form submission
     setErrors(undefined);
     setIsLoading(true);
@@ -19,7 +19,7 @@ function useGoogleSignUpHandler() {
     if (!isLoaded) return;
 
     try {
-      await signUp.authenticateWithRedirect({
+      await signIn.authenticateWithRedirect({
         strategy: "oauth_google",
         redirectUrl: "/dashboard",
         redirectUrlComplete: "/dashboard",
@@ -32,7 +32,7 @@ function useGoogleSignUpHandler() {
     }
   }
 
-  return { handleGoogleSignUp, isLoading, errors };
+  return { handleGoogleSignin, isLoading, errors };
 }
 
-export default useGoogleSignUpHandler;
+export default useGoogleSignInHandler;

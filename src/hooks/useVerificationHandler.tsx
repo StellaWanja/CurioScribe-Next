@@ -20,7 +20,8 @@ function useVerificationHandler() {
   ) {
     event.preventDefault();
 
-    setErrors([]);
+    // Clear any errors that may have occurred during previous form submission
+    setErrors(undefined);
     setIsLoading(true);
 
     if (!isLoaded) return;

@@ -1,25 +1,18 @@
 "use client";
 
-import React, { JSX } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import { useUser } from "@clerk/clerk-react";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 
 import { sidebarLinkVariants } from "@/utils/variants";
-import Spinner from "../ui/Spinner";
 
-function ProfileSection({
-  sidebarIsClosed,
-}: {
-  sidebarIsClosed: boolean;
-}): JSX.Element {
+function ProfileSection({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
   const { isSignedIn, user, isLoaded } = useUser();
   const router = useRouter();
 
-  if (!isLoaded) {
-    return <Spinner />;
-  }
+  if (!isLoaded) return;
 
   console.log(user);
   console.log(isSignedIn);
