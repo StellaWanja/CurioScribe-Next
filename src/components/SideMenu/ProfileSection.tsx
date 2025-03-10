@@ -1,3 +1,5 @@
+"use client";
+
 import React, { JSX } from "react";
 import { motion } from "motion/react";
 import { useUser } from "@clerk/clerk-react";
@@ -18,6 +20,9 @@ function ProfileSection({
   if (!isLoaded) {
     return <Spinner />;
   }
+
+  console.log(user);
+  console.log(isSignedIn);
 
   if (!isSignedIn || !user) {
     router.push("/sign-in");

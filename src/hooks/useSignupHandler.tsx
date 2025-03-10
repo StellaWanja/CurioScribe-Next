@@ -5,8 +5,6 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { useState } from "react";
 import { useSignUp } from "@clerk/nextjs";
 
-import Spinner from "@/components/ui/Spinner";
-
 function useSignupHandler() {
   const { isLoaded, signUp } = useSignUp();
 
@@ -27,9 +25,7 @@ function useSignupHandler() {
     setErrors(undefined);
     setIsLoading(true);
 
-    if (!isLoaded) {
-      return <Spinner />;
-    }
+    if (!isLoaded) return;
 
     try {
       await signUp.create({
@@ -43,8 +39,9 @@ function useSignupHandler() {
     } catch (err) {
       if (isClerkAPIResponseError(err)) setErrors(err.errors);
       console.error(JSON.stringify(err, null, 2));
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }
 
   return { handleSubmit, errors, isLoading, pendingVerification };

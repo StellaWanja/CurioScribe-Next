@@ -3,7 +3,6 @@
 import React from "react";
 import { Search } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 
 import DashboardCard from "./DashboardCard";
@@ -17,15 +16,12 @@ const time =
 
 function Dashboard() {
   const { isSignedIn, user, isLoaded } = useUser();
-  const router = useRouter();
 
   if (!isLoaded) {
     return <Spinner />;
   }
 
-  if (!isSignedIn || !user) {
-    router.push("/sign-in");
-  }
+  if (!isSignedIn || !user) return;
 
   return (
     <div className="py-8 px-5">

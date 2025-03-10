@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import { ClerkAPIError } from "@clerk/types";
 
-import Spinner from "@/components/ui/Spinner";
-
 function useVerificationHandler() {
   const router = useRouter();
 
@@ -24,11 +22,8 @@ function useVerificationHandler() {
 
     setErrors([]);
     setIsLoading(true);
-    console.log(code);
 
-    if (!isLoaded) {
-      return <Spinner />;
-    }
+    if (!isLoaded) return;
 
     try {
       const completeSignUp = await signUp.attemptEmailAddressVerification({
@@ -50,8 +45,9 @@ function useVerificationHandler() {
     } catch (err) {
       if (isClerkAPIResponseError(err)) setErrors(err.errors);
       console.error(JSON.stringify(err, null, 2));
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   }
 
   return { handleVerification, isLoading, errors };

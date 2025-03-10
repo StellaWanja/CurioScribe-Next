@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   useFloating,
   useClick,
@@ -19,6 +19,8 @@ type DialogProps = {
   description: string;
   children: React.ReactNode;
   className: string;
+  dialogIsOpen: boolean;
+  setDialogIsOpen: (dialogIsOpen: boolean) => void;
 };
 
 function Dialog({
@@ -27,8 +29,9 @@ function Dialog({
   description,
   children,
   className,
+  dialogIsOpen,
+  setDialogIsOpen,
 }: DialogProps) {
-  const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { refs, context } = useFloating({
     open: dialogIsOpen,
     onOpenChange: setDialogIsOpen,
@@ -59,9 +62,9 @@ function Dialog({
       {dialogIsOpen && (
         <FloatingOverlay
           lockScroll
-          style={{ background: "rgba(0, 0, 0, 0.8)" }}
+          style={{ background: "rgba(0, 0, 0, 0.8)", zIndex: 50 }}
         >
-          <FloatingFocusManager context={context}>
+          <FloatingFocusManager context={context} modal={true} initialFocus={refs.floating}>
             <div
               ref={refs.setFloating}
               aria-labelledby={labelId}
@@ -69,18 +72,24 @@ function Dialog({
               {...getFloatingProps()}
               className={className}
             >
-              <h2 id={labelId} className="text-xl font-semibold">
+              <h2
+                id={labelId}
+                className="text-xl font-semibold text-darkgrey dark:text-white"
+              >
                 {title}
               </h2>
               {description && (
-                <p id={descriptionId} className="text-sm text-gray-600">
+                <p
+                  id={descriptionId}
+                  className="text-sm text-gray-600 dark:text-gray-300"
+                >
                   {description}
                 </p>
               )}
 
               <div className="mt-4">{children}</div>
               <button
-                className="absolute top-2 right-2 text-button text-xl focus:outline-none w-[3rem] h-[3rem] rounded-full flex items-center justify-center"
+                className="absolute top-2 right-2 text-darkgrey dark:text-white text-button text-xl focus:outline-none w-[3rem] h-[3rem] rounded-full flex items-center justify-center"
                 onClick={() => setDialogIsOpen(false)}
                 aria-label="Close dialog"
               >

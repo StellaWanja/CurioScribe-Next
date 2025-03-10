@@ -6,12 +6,20 @@ type InputProps = {
   label: string;
   value: string;
   onChangeFn: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 };
 
-function Input({ type, id, label, value, onChangeFn }: InputProps) {
+function Input({
+  type,
+  id,
+  label,
+  value,
+  onChangeFn,
+  required = false,
+}: InputProps) {
   return (
     <div className="flex flex-col gap-2 mb-4">
-      <label htmlFor={id} className="text-lg">
+      <label htmlFor={id} className="text-lg text-darkgrey dark:text-white">
         {label}:
       </label>
       <input
@@ -20,8 +28,8 @@ function Input({ type, id, label, value, onChangeFn }: InputProps) {
         value={value}
         onChange={onChangeFn}
         placeholder={label}
-        className="input rounded-md p-2"
-        required
+        className="input rounded-md p-2 dark:bg-white dark:border-2 dark:border-black text-darkgrey"
+        required={required}
       />
     </div>
   );

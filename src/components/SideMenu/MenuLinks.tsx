@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { memo, useMemo } from "react";
 import {
   Blocks,
   CircleHelp,
   File,
   Folders,
   House,
-  LogOut,
   Settings,
 } from "lucide-react";
 import Link from "next/link";
@@ -17,6 +16,7 @@ import { usePathname } from "next/navigation";
 
 import { sidebarLinkVariants } from "@/utils/variants";
 import ProfileSection from "./ProfileSection";
+import Logout from "./Logout";
 
 const sidebarLinks = [
   { id: 1, href: "/dashboard", icon: <House />, label: "Home" },
@@ -25,7 +25,6 @@ const sidebarLinks = [
   { id: 4, href: "", icon: <Folders />, label: "Projects" },
   { id: 5, href: "/settings", icon: <Settings />, label: "Settings" },
   { id: 6, href: "", icon: <CircleHelp />, label: "FAQ" },
-  { id: 7, href: "", icon: <LogOut />, label: "Log Out" },
 ];
 
 type SidebarLinkProps = {
@@ -42,7 +41,8 @@ export function SidebarLink({
   label,
 }: SidebarLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const memoizedPathname = useMemo(() => pathname, [pathname]);
+  const isActive = memoizedPathname === href;
 
   return (
     <Link
@@ -104,15 +104,18 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
       </div>
 
       {/* last 2 links */}
-      {sidebarLinks.slice(5, 7).map((sidebarLink) => (
+      {sidebarLinks.slice(5, 6).map((sidebarLink) => (
         <SidebarLink
           key={sidebarLink.id}
           sidebarIsClosed={sidebarIsClosed}
           {...sidebarLink}
         />
       ))}
+
+      {/* Log Out Dialog */}
+      <Logout sidebarIsClosed={sidebarIsClosed} />
     </div>
   );
 }
 
-export default MenuLinks;
+export default memo(MenuLinks);

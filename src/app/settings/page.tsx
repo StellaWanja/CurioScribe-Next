@@ -4,7 +4,7 @@ import AuthenticatedLayout from "@/components/ui/AuthenticatedLayout";
 
 export async function generateMetadata() {
   return {
-    title: `Dashboard | ${WEB_TITLE}`,
+    title: `Settings | ${WEB_TITLE}`,
   };
 }
 

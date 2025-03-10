@@ -1,6 +1,17 @@
 import React from "react";
+import { Loader } from "lucide-react";
+import { ClerkAPIError } from "@clerk/types";
 
-function GoogleSignUp() {
+type GoogleSignUpProps = {
+  handleGoogleSignUp: () => void;
+  isLoading: boolean;
+  errors: ClerkAPIError[];
+};
+function GoogleSignUp({
+  handleGoogleSignUp,
+  isLoading,
+  errors,
+}: GoogleSignUpProps) {
   return (
     <div className="flex items-center justify-center p-6 pt-0">
       <div className="rounded-xl bg-darkblue p-5 w-full">
@@ -8,8 +19,9 @@ function GoogleSignUp() {
           Alternatively, sign up with these platforms
         </p>
         <button
-          className="w-full bg-white hover:bg-lightgrey transition delay-100 ease-in p-2 rounded-md font-bold flex justify-center items-center gap-2 "
+          className="w-full bg-white hover:bg-lightgrey dark:text-darkgrey transition delay-100 ease-in p-2 rounded-md font-bold flex justify-center items-center gap-2 "
           type="button"
+          onClick={handleGoogleSignUp}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +42,14 @@ function GoogleSignUp() {
               </clipPath>
             </defs>
           </svg>
-          Sign up with Google 
+          Sign up with Google {isLoading && <Loader className="animate-spin" />}
         </button>
+
+        {errors && errors.length > 0 && (
+          <p className="text-red-500 mt-4 text-center">
+            Error: {errors[0]?.message}
+          </p>
+        )}
       </div>
     </div>
   );

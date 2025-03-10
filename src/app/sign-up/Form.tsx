@@ -25,7 +25,7 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="p-6 pt-0">
@@ -40,6 +40,7 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
           label="First Name"
           value={firstName}
           onChangeFn={(event) => setFirstName(event.target.value)}
+          required
         />
 
         <Input
@@ -48,6 +49,7 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
           label="Last Name"
           value={lastName}
           onChangeFn={(event) => setLastName(event.target.value)}
+          required
         />
 
         <Input
@@ -56,10 +58,11 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
           label="Email"
           value={emailAddress}
           onChangeFn={(event) => setEmailAddress(event.target.value)}
+          required
         />
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="text-lg">
+          <label htmlFor="password" className="text-lg text-darkgrey dark:text-white">
             Password:
           </label>
           <div className="relative">
@@ -69,8 +72,8 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
+              className="w-full input rounded-md p-2 dark:bg-white dark:border-2 dark:border-black text-darkgrey"
               required
-              className="w-full input rounded-md p-2"
             />
             <button
               type="button"
@@ -78,9 +81,9 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
               className="absolute right-2 top-1/2 -translate-y-1/2"
             >
               {showPassword ? (
-                <EyeOff className="h-4 w-4 text-gray-500" />
+                <Eye className="h-4 w-4 text-darkgrey" />
               ) : (
-                <Eye className="h-4 w-4 text-gray-500" />
+                <EyeOff className="h-4 w-4 text-darkgrey" />
               )}
             </button>
           </div>
@@ -100,7 +103,7 @@ function Form({ errors, handleSubmit, isLoading }: FormProps) {
         </Button>
       </form>
 
-      <p className="text-sm text-center pt-4 text-muted-foreground">
+      <p className="text-sm text-center pt-4 text-muted-foreground text-darkgrey dark:text-white">
         Already have an account?{" "}
         <Link
           href="/sign-in"
