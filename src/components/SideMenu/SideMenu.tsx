@@ -28,7 +28,11 @@ function SideMenu({
         )}
       >
         {/* tooltip on hover */}
-        <Tooltip text={sidebarIsClosed ? "Open Sidebar" : "Close Sidebar"}>
+        <Tooltip
+          text={sidebarIsClosed ? "Open Sidebar" : "Close Sidebar"}
+          trigger="hover"
+          className="bg-yellow text-darkgrey"
+        >
           <button aria-describedby="sidebar toggle" onClick={toggleSidebar}>
             <PanelLeftClose />
           </button>

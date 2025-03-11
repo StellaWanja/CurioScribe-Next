@@ -8,6 +8,7 @@ import { useUser } from "@clerk/nextjs";
 import DashboardCard from "./DashboardCard";
 import Spinner from "../../components/ui/Spinner";
 
+// get the current time to display greeting
 const currentHour = new Date().getHours();
 const time =
   (currentHour < 12 && "Morning") ||
@@ -15,12 +16,15 @@ const time =
   "Evening";
 
 function Dashboard() {
+  // check if user is signed in
   const { isSignedIn, user, isLoaded } = useUser();
 
+  // check if user is loaded
   if (!isLoaded) {
     return <Spinner />;
   }
 
+  // check if user is signed in
   if (!isSignedIn || !user) return;
 
   return (
@@ -30,6 +34,7 @@ function Dashboard() {
           👋 Good {time}, {user?.firstName}!
         </h1>
 
+        {/* search bar */}
         <div className="relative w-full max-w-md">
           <Search
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"

@@ -11,8 +11,10 @@ import Spinner from "@/components/ui/Spinner";
 
 function UpdateForm({
   setDialogIsOpen,
+  setUpdateTooltipVisible,
 }: {
   setDialogIsOpen: (dialogIsOpen: boolean) => void;
+  setUpdateTooltipVisible: (updateTooltipVisible: boolean) => void;
 }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,10 +23,12 @@ function UpdateForm({
   const { isLoaded, user, isSignedIn } = useUser();
   const router = useRouter();
 
+  // check if user is loaded
   if (!isLoaded) {
     return <Spinner />;
   }
 
+  // check if user is signed in
   if (!isSignedIn || !user) {
     router.push("/sign-in");
   }
@@ -41,20 +45,30 @@ function UpdateForm({
     const trimmedFirstName = firstName?.trim();
     const trimmedLastName = lastName?.trim();
 
+    // Check if both first name and last name are empty
     if (!trimmedFirstName && !trimmedLastName) {
       setIsLoading(false);
-      setDialogIsOpen(false);
       return;
     }
 
+    // Create an object with the updated data
     const updatedData: Record<string, string> = {};
     if (trimmedFirstName) updatedData.firstName = trimmedFirstName;
     if (trimmedLastName) updatedData.lastName = trimmedLastName;
 
-    await user?.update(updatedData);
-
-    setIsLoading(false);
-    setDialogIsOpen(false);
+    try {
+      // update user
+      await user?.update(updatedData);
+      //tooltip
+      setUpdateTooltipVisible(true);
+     setTimeout(() => setUpdateTooltipVisible(false), 3000);
+    } catch (error) {
+      console.error("Update failed:", error);
+      //tooltip
+    } finally {
+      setIsLoading(false);
+      setDialogIsOpen(false);
+    }
   }
 
   return (

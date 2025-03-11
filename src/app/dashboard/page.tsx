@@ -8,6 +8,7 @@ export async function generateMetadata() {
   };
 }
 
+// split for both sidebar and dashboard
 export default function DashboardPage() {
   return (
     <AuthenticatedLayout>

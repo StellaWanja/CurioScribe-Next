@@ -14,9 +14,6 @@ function ProfileSection({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
 
   if (!isLoaded) return;
 
-  console.log(user);
-  console.log(isSignedIn);
-
   if (!isSignedIn || !user) {
     router.push("/sign-in");
   }

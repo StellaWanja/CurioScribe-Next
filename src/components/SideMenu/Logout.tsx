@@ -37,9 +37,10 @@ function Logout({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
     >
       <div className="flex justify-end gap-4">
         <button
-          type="submit"
+          type="button"
           className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6  w-full rounded-md"
           onClick={handleSignOut}
+          aria-label="Log Out"
         >
           Logout {isLoading && <Loader className="animate-spin" />}
         </button>

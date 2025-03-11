@@ -8,7 +8,8 @@ export async function generateMetadata() {
   };
 }
 
-export default function DashboardPage() {
+// split for both sidebar and setiings
+export default function SettingsPage() {
   return (
     <AuthenticatedLayout>
       <Settings />
