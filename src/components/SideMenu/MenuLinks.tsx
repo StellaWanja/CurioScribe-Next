@@ -20,7 +20,7 @@ import Logout from "./Logout";
 
 const sidebarLinks = [
   { id: 1, href: "/dashboard", icon: <House />, label: "Home" },
-  { id: 2, href: "", icon: <Blocks />, label: "Create New" },
+  { id: 2, href: "/articles/new", icon: <Blocks />, label: "Create New" },
   { id: 3, href: "", icon: <File />, label: "Templates" },
   { id: 4, href: "", icon: <Folders />, label: "Projects" },
   { id: 5, href: "/settings", icon: <Settings />, label: "Settings" },
