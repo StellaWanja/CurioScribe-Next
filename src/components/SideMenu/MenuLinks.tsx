@@ -4,7 +4,6 @@ import React, { memo, useMemo } from "react";
 import {
   Blocks,
   CircleHelp,
-  File,
   Folders,
   House,
   Settings,
@@ -21,10 +20,9 @@ import Logout from "./Logout";
 const sidebarLinks = [
   { id: 1, href: "/dashboard", icon: <House />, label: "Home" },
   { id: 2, href: "/articles/new", icon: <Blocks />, label: "Create New" },
-  { id: 3, href: "", icon: <File />, label: "Templates" },
-  { id: 4, href: "", icon: <Folders />, label: "Projects" },
-  { id: 5, href: "/settings", icon: <Settings />, label: "Settings" },
-  { id: 6, href: "", icon: <CircleHelp />, label: "FAQ" },
+  { id: 3, href: "", icon: <Folders />, label: "Projects" },
+  { id: 4, href: "/settings", icon: <Settings />, label: "Settings" },
+  { id: 5, href: "", icon: <CircleHelp />, label: "FAQ" },
 ];
 
 type SidebarLinkProps = {
@@ -72,7 +70,7 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
   return (
     <div className="flex flex-col gap-2 mt-8 text-lightgrey text-sm">
       {/* first 3 links */}
-      {sidebarLinks.slice(0, 3).map((sidebarLink) => (
+      {sidebarLinks.slice(0, 2).map((sidebarLink) => (
         <SidebarLink
           key={sidebarLink.id}
           sidebarIsClosed={sidebarIsClosed}
@@ -93,7 +91,7 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
             sidebarIsClosed ? "ml-0" : "ml-4"
           )}
         >
-          {sidebarLinks.slice(3, 5).map((sidebarLink) => (
+          {sidebarLinks.slice(2, 4).map((sidebarLink) => (
             <SidebarLink
               key={sidebarLink.id}
               sidebarIsClosed={sidebarIsClosed}
@@ -104,7 +102,7 @@ function MenuLinks({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
       </div>
 
       {/* last 2 links */}
-      {sidebarLinks.slice(5, 6).map((sidebarLink) => (
+      {sidebarLinks.slice(4).map((sidebarLink) => (
         <SidebarLink
           key={sidebarLink.id}
           sidebarIsClosed={sidebarIsClosed}

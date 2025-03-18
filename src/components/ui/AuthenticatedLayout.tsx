@@ -20,7 +20,7 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   return (
     <main
       className={clsx(
-        "font-sans w-full min-h-screen bg-darkblue grid transition-[grid-template-columns] duration-300 ease-in-out",
+        "font-sans w-full min-h-screen bg-darkblue grid transition-[grid-template-columns] duration-300 ease-in-out overflow-hidden",
         closedSidebar ? "grid-cols-[80px_1fr]" : "grid-cols-[180px_1fr]"
       )}
     >
@@ -33,7 +33,7 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
       </section>
 
       {/* dashboard */}
-      <section className="bg-white dark:bg-dashboardblue text-darkgrey dark:text-white rounded-lg m-4">
+      <section className="bg-white dark:bg-dashboardblue text-darkgrey dark:text-white rounded-lg p-4 w-full mx-auto overflow-hidden">
         {children}
       </section>
     </main>
