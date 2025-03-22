@@ -21,6 +21,8 @@ function Dashboard() {
   const { isSignedIn, user, isLoaded } = useUser();
   const router = useRouter();
 
+  console.log(user)
+
   // check if user is loaded
   if (!isLoaded) {
     return <Spinner />;

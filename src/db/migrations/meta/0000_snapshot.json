@@ -1,11 +1,11 @@
 {
-  "id": "0bbb89f2-eb6b-4515-a714-4de46c8f3012",
+  "id": "5348b5cd-df11-4fa8-8556-4e9819fe1783",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.articles": {
-      "name": "articles",
+    "public.content": {
+      "name": "content",
       "schema": "",
       "columns": {
         "id": {
@@ -13,26 +13,6 @@
           "type": "serial",
           "primaryKey": true,
           "notNull": true
-        },
-        "userId": {
-          "name": "userId",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "articleTitle": {
-          "name": "articleTitle",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "articleTopic": {
-          "name": "articleTopic",
-          "type": "articleTopic",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'general'"
         },
         "createTimestamp": {
           "name": "createTimestamp",
@@ -41,107 +21,29 @@
           "notNull": true,
           "default": "now()"
         },
-        "updatedTimestamp": {
-          "name": "updatedTimestamp",
-          "type": "timestamp",
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "body": {
+          "name": "body",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
-        },
-        "length": {
-          "name": "length",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.stories": {
-      "name": "stories",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
         },
         "userId": {
           "name": "userId",
           "type": "text",
           "primaryKey": false,
           "notNull": true
-        },
-        "storyTitle": {
-          "name": "storyTitle",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "storyGenre": {
-          "name": "storyGenre",
-          "type": "storyGenre",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'general'"
-        },
-        "createTimestamp": {
-          "name": "createTimestamp",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updatedTimestamp": {
-          "name": "updatedTimestamp",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "length": {
-          "name": "length",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.user": {
-      "name": "user",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "email": {
-          "name": "email",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "onTrial": {
-          "name": "onTrial",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
         }
       },
       "indexes": {},
@@ -153,41 +55,7 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {
-    "public.articleTopic": {
-      "name": "articleTopic",
-      "schema": "public",
-      "values": [
-        "general",
-        "tech",
-        "health",
-        "biz",
-        "science",
-        "education",
-        "entertainment",
-        "opinion",
-        "diy",
-        "news"
-      ]
-    },
-    "public.storyGenre": {
-      "name": "storyGenre",
-      "schema": "public",
-      "values": [
-        "general",
-        "fantasy",
-        "sci-fi",
-        "mystery",
-        "romance",
-        "horror",
-        "adventure",
-        "historic-fic",
-        "short-story",
-        "flash-fic",
-        "poetry"
-      ]
-    }
-  },
+  "enums": {},
   "schemas": {},
   "sequences": {},
   "roles": {},

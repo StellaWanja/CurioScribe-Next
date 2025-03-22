@@ -64,7 +64,11 @@ function Dialog({
           lockScroll
           style={{ background: "rgba(0, 0, 0, 0.8)", zIndex: 50 }}
         >
-          <FloatingFocusManager context={context} modal={true} initialFocus={refs.floating}>
+          <FloatingFocusManager
+            context={context}
+            modal={true}
+            initialFocus={refs.floating}
+          >
             <div
               ref={refs.setFloating}
               aria-labelledby={labelId}

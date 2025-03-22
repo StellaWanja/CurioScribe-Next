@@ -23,7 +23,7 @@ function NewArticle() {
     setError("");
 
     try {
-      const response = await fetch("/api/articles", {
+      const response = await fetch("/api/generate-content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),

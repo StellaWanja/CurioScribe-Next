@@ -6,7 +6,7 @@ export async function DELETE() {
   const { userId } = await auth();
 
   if (!userId) {
-    return NextResponse.json({ error: "Unauthorized user" }, { status: 401 });
+    return NextResponse.json({ error: "Unauthorized user" }, { status: 404 });
   }
 
   try {

@@ -14,6 +14,7 @@ if (!apiKey) {
   throw new Error("Missing Google API key");
 }
 
+// create model, configurations and safety settings
 const genAI = new GoogleGenerativeAI(apiKey);
 const generationConfig = {
   temperature: 1,
@@ -59,12 +60,15 @@ export async function POST(req: Request) {
       );
     }
 
+    // generate content
     const result = await model.generateContent(prompt);
 
+    // ensure response has content and is not empty
     if (result.response.candidates && result.response.candidates.length > 0) {
       let textResponse = "";
       let imageData = null;
 
+      // extract text and image data
       for (const part of result.response.candidates[0].content.parts) {
         if (part.text) {
           textResponse += part.text;
@@ -77,7 +81,7 @@ export async function POST(req: Request) {
         // Handle Image Data
         const imageBuffer = Buffer.from(imageData, "base64");
 
-        // Return Image data as part of the JSON response.
+        // Return Image and Text data as part of the JSON response.
         return NextResponse.json(
           {
             response: textResponse,
@@ -88,6 +92,7 @@ export async function POST(req: Request) {
           { status: 200 }
         );
       } else {
+        // Return Text data
         return NextResponse.json({ response: textResponse }, { status: 200 });
       }
     } else {
