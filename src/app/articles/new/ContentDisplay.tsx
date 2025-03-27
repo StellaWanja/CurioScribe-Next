@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+import renderImage from "@/utils/renderImage";
 
 function ContentDisplay({
   content,
@@ -17,29 +18,11 @@ function ContentDisplay({
   const [error, setError] = useState("");
   const router = useRouter();
 
-  function displayImage() {
-    if (imageData) {
-      const imgSrc = `data:image/png;base64,${imageData}`;
-      console.log(imgSrc);
-      return (
-        <Image
-          src={imgSrc}
-          alt="Generated Image"
-          className="rounded-md "
-          width={500}
-          height={300}
-          unoptimized
-        />
-      );
-    }
-    return null;
-  }
-
   async function handleDBSaving() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/save-content", {
+      const response = await fetch("/api/articles/save", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,9 +50,9 @@ function ContentDisplay({
 
   return (
     <>
-      <div className="mt-12">{displayImage()}</div>
+      <div className="mt-12">{renderImage(imageData)}</div>
 
-      <p className="text-red-500 mt-4 text-center">{error}</p>
+      {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
       {content && (
         <div className="w-full sm:w-3/4 mt-8 text-darkgrey dark:text-white">

@@ -1,18 +1,18 @@
 import AuthenticatedLayout from "@/components/ui/AuthenticatedLayout";
-import NewArticle from "./NewArticle";
+import AllArticles from "./AllArticles";
 import { WEB_TITLE } from "@/constants";
 
 export async function generateMetadata() {
   return {
-    title: `Create Article | ${WEB_TITLE}`,
+    title: `Articles | ${WEB_TITLE}`,
   };
 }
 
 // split for both sidebar and New Article
-export default function NewArticlePage() {
+export default async function AllArticlesPage() {
   return (
     <AuthenticatedLayout>
-      <NewArticle />
+      <AllArticles />
     </AuthenticatedLayout>
   );
 }

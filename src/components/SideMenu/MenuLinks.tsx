@@ -20,7 +20,7 @@ import Logout from "./Logout";
 const sidebarLinks = [
   { id: 1, href: "/dashboard", icon: <House />, label: "Home" },
   { id: 2, href: "/articles/new", icon: <Blocks />, label: "Create New" },
-  { id: 3, href: "", icon: <Folders />, label: "Projects" },
+  { id: 3, href: "/articles", icon: <Folders />, label: "Projects" },
   { id: 4, href: "/settings", icon: <Settings />, label: "Settings" },
   { id: 5, href: "", icon: <CircleHelp />, label: "FAQ" },
 ];
@@ -50,6 +50,7 @@ export function SidebarLink({
         sidebarIsClosed && "flex justify-center",
         isActive && "active-sidebar-links"
       )}
+      prefetch
     >
       {icon}
       {!sidebarIsClosed && (

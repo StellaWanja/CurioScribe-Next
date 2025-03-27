@@ -23,7 +23,7 @@ function NewArticle() {
     setError("");
 
     try {
-      const response = await fetch("/api/generate-content", {
+      const response = await fetch("/api/articles/generate-content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
@@ -64,10 +64,10 @@ function NewArticle() {
           <h2 className="mt-4 text-xl font-semibold tracking-tight text-center">
             What would you like to write about?
           </h2>
-          <p className="text-center text-lightgrey text-sm">
+          <p className="text-center text-darkgrey dark:text-lightgrey text-sm">
             Tip: Be as descriptive as possible. Images can be added as well!
           </p>
-          <span className="text-center text-lightgrey text-sm">
+          <span className="text-center text-darkgrey dark:text-lightgrey text-sm">
             e.g. write an article about the history of computers and include
             images.
           </span>
