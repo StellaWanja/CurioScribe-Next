@@ -7,9 +7,14 @@ const cardContent = [
     id: 1,
     icon: <NotebookPen />,
     title: "Create an engaging article",
-    link: "",
+    link: "/articles/new",
   },
-  { id: 2, icon: <Brush />, title: "Create an imaginative tale", link: "" },
+  {
+    id: 2,
+    icon: <Brush />,
+    title: "Create an imaginative tale",
+    link: "/articles/new",
+  },
 ];
 
 function DashboardCard() {

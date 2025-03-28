@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Search } from "lucide-react";
-import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
@@ -64,9 +63,6 @@ function Dashboard() {
       <div className="mt-8 ">
         <div className="flex items-center justify-between">
           <h2 className="font-medium text-lg">Recent Content</h2>
-          <Link href="" className="hover:underline">
-            See All
-          </Link>
         </div>
 
         <div className="mt-4 w-full bg-dashboardblue dark:bg-darkblue rounded-md p-4">
