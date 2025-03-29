@@ -3,21 +3,22 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Content } from "@/db/schema";
+import { ArticleType } from "@/constants";
 
 import renderImage from "@/utils/renderImage";
 import UpdateForm from "./UpdateForm";
-
-type ArticleType = typeof Content.$inferSelect;
+import Tooltip from "@/components/ui/Tooltip";
 
 interface ArticleProps {
   articleDetails: ArticleType[]; // Expecting an array inside an object
+  setArticleDetails: React.Dispatch<React.SetStateAction<ArticleType[]>>
 }
 
-function DisplayArticle({ articleDetails }: ArticleProps) {
+function DisplayArticle({ articleDetails, setArticleDetails } :  ArticleProps) {
   const { id, title, body, image, createTimestamp } = articleDetails[0];
 
   const [isEditing, setIsEditing] = useState(false);
+  const [updateTooltipVisible, setUpdateTooltipVisible] = useState(false);
 
   return (
     <div className="m-8 py-12 px-8 text-darkgrey dark:bg-darkblue dark:text-white rounded-2xl">
@@ -32,6 +33,15 @@ function DisplayArticle({ articleDetails }: ArticleProps) {
         >
           {isEditing ? "Cancel" : "Edit Article"}
         </button>
+      </div>
+
+      <div className="w-full absolute top-10 left-1/2 -translate-x-1/2">
+        <Tooltip
+          text="Profile Updated successfully"
+          visible={updateTooltipVisible}
+          trigger="manual"
+          className="bg-green-700 text-white"
+        />
       </div>
 
       {/* divider */}
@@ -62,7 +72,15 @@ function DisplayArticle({ articleDetails }: ArticleProps) {
       )}
 
       {/* Editing article */}
-      {isEditing && <UpdateForm title={title} body={body} />}
+      {isEditing && (
+        <UpdateForm
+          title={title}
+          body={body}
+          setIsEditing={setIsEditing}
+          setUpdateTooltipVisible={setUpdateTooltipVisible}
+          setArticleDetails={setArticleDetails}
+        />
+      )}
     </div>
   );
 }

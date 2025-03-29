@@ -22,6 +22,12 @@ function NewArticle() {
     setImageData(null);
     setError("");
 
+    if (!prompt || prompt.trim() === "") {
+      setError("Prompt is required");
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/articles/generate-content", {
         method: "POST",

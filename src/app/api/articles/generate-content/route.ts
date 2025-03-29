@@ -5,6 +5,7 @@ import {
 } from "@google/generative-ai";
 import dotenv from "dotenv";
 import { NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 
 dotenv.config();
 
@@ -48,11 +49,17 @@ const model = genAI.getGenerativeModel({
 });
 
 export async function POST(req: Request) {
+  const { userId } = await auth();
+
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized user" }, { status: 404 });
+  }
+  
   try {
     const { prompt } = await req.json();
 
     // validate data
-    if (!prompt) {
+    if (!prompt || prompt.trim() === "") {
       return NextResponse.json(
         { error: "Prompt is required" },
         { status: 400 }

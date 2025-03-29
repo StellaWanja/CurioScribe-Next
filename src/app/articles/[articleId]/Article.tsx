@@ -6,18 +6,22 @@ import { useParams } from "next/navigation";
 import Spinner from "@/components/ui/Spinner";
 import DisplayArticle from "./DisplayArticle";
 
+import { ArticleType } from "@/constants";
+
 function Article() {
   const { articleId } = useParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [articleDetails, setArticleDetails] = useState([]);
+  const [articleDetails, setArticleDetails] = useState<ArticleType[]>([]);
 
   useEffect(() => {
     async function fetchArticleDetails() {
       setLoading(true);
 
       try {
-        const response = await fetch(`/api/articles/${articleId}`);
+        const response = await fetch(`/api/articles/${articleId}`, {
+          method: "GET",
+        });
 
         if (!response.ok) {
           throw new Error("Failed to get content. Please try again later.");
@@ -47,7 +51,10 @@ function Article() {
       {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
       {articleDetails.length > 0 && (
-        <DisplayArticle articleDetails={articleDetails} />
+        <DisplayArticle
+          articleDetails={articleDetails}
+          setArticleDetails={setArticleDetails}
+        />
       )}
     </div>
   );
