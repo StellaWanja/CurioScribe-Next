@@ -4,19 +4,19 @@ import React from "react";
 import { motion } from "motion/react";
 import { useUser } from "@clerk/clerk-react";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
 
+import Spinner from "@/components/ui/Spinner";
 import { sidebarLinkVariants } from "@/utils/variants";
 
 function ProfileSection({ sidebarIsClosed }: { sidebarIsClosed: boolean }) {
+  // check if user is signed in
   const { isSignedIn, user, isLoaded } = useUser();
-  const router = useRouter();
 
-  if (!isLoaded) return;
+  // check if user is loaded
+  if (!isLoaded) return <Spinner />;
 
-  if (!isSignedIn || !user) {
-    router.push("/sign-in");
-  }
+  // check if user is signed in
+  if (!isSignedIn || !user) return;
 
   return (
     <div className="flex gap-3 items-center text-white">

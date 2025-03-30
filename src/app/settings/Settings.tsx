@@ -12,6 +12,7 @@ function Settings() {
   const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [updateTooltipVisible, setUpdateTooltipVisible] = useState(false);
+  const [errorTooltipVisible, setErrorTooltipVisible] = useState(false);
 
   return (
     <div className="py-8 px-5">
@@ -23,6 +24,12 @@ function Settings() {
           visible={updateTooltipVisible}
           trigger="manual"
           className="bg-green-700 text-white"
+        />
+        <Tooltip
+          text="Update failed"
+          visible={errorTooltipVisible}
+          trigger="manual"
+          className="bg-red-500 text-white"
         />
       </div>
 
@@ -50,6 +57,7 @@ function Settings() {
               <UpdateForm
                 setDialogIsOpen={setUpdateDialogOpen}
                 setUpdateTooltipVisible={setUpdateTooltipVisible}
+                setErrorTooltipVisible={setErrorTooltipVisible}
               />
             </Dialog>
           </div>

@@ -3,10 +3,10 @@
 import React from "react";
 import { Search } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 
 import DashboardCard from "./DashboardCard";
-import Spinner from "../../components/ui/Spinner";
+import DashboardList from "./DashboardList";
+import Spinner from "@/components/ui/Spinner";
 
 // get the current time to display greeting
 const currentHour = new Date().getHours();
@@ -18,18 +18,12 @@ const time =
 function Dashboard() {
   // check if user is signed in
   const { isSignedIn, user, isLoaded } = useUser();
-  const router = useRouter();
 
   // check if user is loaded
-  if (!isLoaded) {
-    return <Spinner />;
-  }
+  if (!isLoaded) return <Spinner />;
 
   // check if user is signed in
-  if (!isSignedIn || !user) {
-    router.push("/sign-in");
-    return;
-  }
+  if (!isSignedIn || !user) return;
 
   return (
     <div className="py-8 px-5">
@@ -65,9 +59,7 @@ function Dashboard() {
           <h2 className="font-medium text-lg">Recent Content</h2>
         </div>
 
-        <div className="mt-4 w-full bg-dashboardblue dark:bg-darkblue rounded-md p-4">
-          <h2 className="text-white">Title text</h2>
-        </div>
+        <DashboardList />
       </div>
     </div>
   );

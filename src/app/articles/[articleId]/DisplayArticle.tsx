@@ -6,15 +6,15 @@ import ReactMarkdown from "react-markdown";
 import { ArticleType } from "@/constants";
 
 import renderImage from "@/utils/renderImage";
-import UpdateForm from "./UpdateForm";
 import Tooltip from "@/components/ui/Tooltip";
+import UpdateForm from "./UpdateForm";
 
 interface ArticleProps {
   articleDetails: ArticleType[]; // Expecting an array inside an object
-  setArticleDetails: React.Dispatch<React.SetStateAction<ArticleType[]>>
+  setArticleDetails: React.Dispatch<React.SetStateAction<ArticleType[]>>;
 }
 
-function DisplayArticle({ articleDetails, setArticleDetails } :  ArticleProps) {
+function DisplayArticle({ articleDetails, setArticleDetails }: ArticleProps) {
   const { id, title, body, image, createTimestamp } = articleDetails[0];
 
   const [isEditing, setIsEditing] = useState(false);
@@ -22,22 +22,28 @@ function DisplayArticle({ articleDetails, setArticleDetails } :  ArticleProps) {
 
   return (
     <div className="m-8 py-12 px-8 text-darkgrey dark:bg-darkblue dark:text-white rounded-2xl">
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-5">
         <h1 className="font-bold text-2xl text-center">
           {isEditing ? `Editing Article #${id}` : `Article #${id}`}
         </h1>
-        {/* toggle between edit and read states */}
-        <button
-          className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6 rounded-md"
-          onClick={() => setIsEditing((prev) => !prev)}
-        >
-          {isEditing ? "Cancel" : "Edit Article"}
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-0">
+          {/* toggle between edit and read states */}
+          <button
+            className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6 rounded-md"
+            onClick={() => setIsEditing((prev) => !prev)}
+          >
+            {isEditing ? "Cancel" : "Edit Article"}
+          </button>
+
+          <button className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6 rounded-md">
+            Delete Article
+          </button>
+        </div>
       </div>
 
       <div className="w-full absolute top-10 left-1/2 -translate-x-1/2">
         <Tooltip
-          text="Profile Updated successfully"
+          text="Article Updated successfully"
           visible={updateTooltipVisible}
           trigger="manual"
           className="bg-green-700 text-white"

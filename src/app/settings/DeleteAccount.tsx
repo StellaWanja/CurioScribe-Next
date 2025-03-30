@@ -19,12 +19,10 @@ function DeleteAccount() {
       if (!response.ok) {
         throw new Error("Failed to delete account");
       }
-
-      //   show tooltip
       router.push("/");
     } catch (error) {
       console.error("Error deleting account:", error);
-      // tooltip
+      throw new Error("Failed to delete account", { cause: error });
     } finally {
       setLoading(false);
     }

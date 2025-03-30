@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { Loader } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
@@ -12,16 +11,17 @@ import Spinner from "@/components/ui/Spinner";
 function UpdateForm({
   setDialogIsOpen,
   setUpdateTooltipVisible,
+  setErrorTooltipVisible,
 }: {
   setDialogIsOpen: (dialogIsOpen: boolean) => void;
   setUpdateTooltipVisible: (updateTooltipVisible: boolean) => void;
+  setErrorTooltipVisible: (errorTooltipVisible: boolean) => void;
 }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const { isLoaded, user, isSignedIn } = useUser();
-  const router = useRouter();
 
   // check if user is loaded
   if (!isLoaded) {
@@ -29,9 +29,7 @@ function UpdateForm({
   }
 
   // check if user is signed in
-  if (!isSignedIn || !user) {
-    router.push("/sign-in");
-  }
+  if (!isSignedIn || !user) return;
 
   async function updateUser(
     e: React.FormEvent<HTMLFormElement>,
@@ -61,10 +59,12 @@ function UpdateForm({
       await user?.update(updatedData);
       //tooltip
       setUpdateTooltipVisible(true);
-     setTimeout(() => setUpdateTooltipVisible(false), 3000);
+      setTimeout(() => setUpdateTooltipVisible(false), 3000);
     } catch (error) {
       console.error("Update failed:", error);
       //tooltip
+      setErrorTooltipVisible(true);
+      setTimeout(() => setErrorTooltipVisible(false), 3000);
     } finally {
       setIsLoading(false);
       setDialogIsOpen(false);
