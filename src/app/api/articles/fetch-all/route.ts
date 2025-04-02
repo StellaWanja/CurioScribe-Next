@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { Content } from "@/db/schema";
 
+// GET request → Get all articles
 export async function GET() {
   const { userId } = await auth();
 

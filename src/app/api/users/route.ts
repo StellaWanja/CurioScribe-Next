@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
+// DELETE request → Delete user
 export async function DELETE() {
   const { userId } = await auth();
 

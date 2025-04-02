@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "@/db";
 import { Content } from "@/db/schema";
 
+// POST request → Save content
 export async function POST(req: Request) {
   const { userId } = await auth();
 

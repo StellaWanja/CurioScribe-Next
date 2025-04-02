@@ -45,6 +45,12 @@ function AllArticles() {
       {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
       {articles.length > 0 && <ArticleCard cardDetails={articles} />}
+
+      {articles.length === 0 && (
+        <p className="text-center text-darkgrey dark:text-white mt-4">
+          No articles found.
+        </p>
+      )}
     </div>
   );
 }

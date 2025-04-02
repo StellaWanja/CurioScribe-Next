@@ -3,6 +3,7 @@ import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 export const Content = pgTable("content", {
   id: serial("id").primaryKey().notNull(),
   createTimestamp: timestamp("createTimestamp").notNull().defaultNow(),
+  updateTimestamp: timestamp("updateTimestamp"),
   title: text("title").notNull(), // first 10 words
   body: text("body").notNull(),
   image: text("image"),

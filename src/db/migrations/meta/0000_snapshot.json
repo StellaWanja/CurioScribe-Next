@@ -1,5 +1,5 @@
 {
-  "id": "5348b5cd-df11-4fa8-8556-4e9819fe1783",
+  "id": "4670d3a9-4a03-4c11-be7c-4edbe7605729",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -20,6 +20,12 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
+        },
+        "updateTimestamp": {
+          "name": "updateTimestamp",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
         },
         "title": {
           "name": "title",

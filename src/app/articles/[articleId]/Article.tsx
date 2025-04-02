@@ -56,6 +56,12 @@ function Article() {
           setArticleDetails={setArticleDetails}
         />
       )}
+
+      {articleDetails.length === 0 && (
+        <p className="text-center text-darkgrey dark:text-white mt-4">
+          Article not found.
+        </p>
+      )}
     </div>
   );
 }

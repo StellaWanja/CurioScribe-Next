@@ -6,8 +6,10 @@ import ReactMarkdown from "react-markdown";
 import { ArticleType } from "@/constants";
 
 import renderImage from "@/utils/renderImage";
+import formatTimestamp from "@/utils/formatTimestamp";
 import Tooltip from "@/components/ui/Tooltip";
 import UpdateForm from "./UpdateForm";
+import ArticleMenu from "./ArticleMenu";
 
 interface ArticleProps {
   articleDetails: ArticleType[]; // Expecting an array inside an object
@@ -15,7 +17,9 @@ interface ArticleProps {
 }
 
 function DisplayArticle({ articleDetails, setArticleDetails }: ArticleProps) {
-  const { id, title, body, image, createTimestamp } = articleDetails[0];
+  // Destructure the article details
+  const { id, title, body, image, createTimestamp, updateTimestamp } =
+    articleDetails[0];
 
   const [isEditing, setIsEditing] = useState(false);
   const [updateTooltipVisible, setUpdateTooltipVisible] = useState(false);
@@ -27,17 +31,7 @@ function DisplayArticle({ articleDetails, setArticleDetails }: ArticleProps) {
           {isEditing ? `Editing Article #${id}` : `Article #${id}`}
         </h1>
         <div className="flex flex-col sm:flex-row gap-4 mt-4 sm:mt-0">
-          {/* toggle between edit and read states */}
-          <button
-            className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6 rounded-md"
-            onClick={() => setIsEditing((prev) => !prev)}
-          >
-            {isEditing ? "Cancel" : "Edit Article"}
-          </button>
-
-          <button className="solid-button flex justify-center items-center gap-2 font-bold py-2 px-6 rounded-md">
-            Delete Article
-          </button>
+          <ArticleMenu setIsEditing={setIsEditing} isEditing={isEditing} />
         </div>
       </div>
 
@@ -58,11 +52,9 @@ function DisplayArticle({ articleDetails, setArticleDetails }: ArticleProps) {
         <>
           <h2 className="font-bold text-xl text-center mb-5">{title}</h2>
           <p className="font-medium text-sm my-4 text-center">
-            {new Date(createTimestamp).toLocaleDateString("en-US", {
-              month: "short",
-              day: "2-digit",
-              year: "numeric",
-            })}
+            {!updateTimestamp
+              ? formatTimestamp(createTimestamp)
+              : formatTimestamp(updateTimestamp)}
           </p>
           <div className="m-auto">{renderImage(image)}</div>
           <div className="mt-8">
