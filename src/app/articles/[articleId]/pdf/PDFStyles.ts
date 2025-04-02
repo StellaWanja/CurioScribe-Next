@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 35,
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Oswald'
   },
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 40,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     margin: 12,
     fontFamily: 'Oswald'
   },

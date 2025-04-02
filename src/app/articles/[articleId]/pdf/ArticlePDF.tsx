@@ -21,6 +21,7 @@ function ArticlePDF({ articleDetails }: { articleDetails: ArticleType }) {
           ~ Created with CurioScribe ~
         </Text>
         <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{title}</Text>
         <Text style={styles.date}>
           {!updateTimestamp
             ? formatTimestamp(createTimestamp)

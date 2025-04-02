@@ -48,7 +48,7 @@ function DashboardList({ searchQuery }: { searchQuery: string }) {
 
       {articles.length === 0 && (
         <div className="w-full bg-dashboardblue dark:bg-darkblue rounded-md p-4 mt-4">
-          <p className="text-center">No articles found!</p>
+          <p className="text-center text-white">No articles found!</p>
         </div>
       )}
 
