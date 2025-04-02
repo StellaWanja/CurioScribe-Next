@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import Spinner from "@/components/ui/Spinner";
 
-function DashboardList() {
+function DashboardList({ searchQuery }: { searchQuery: string }) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -15,7 +15,7 @@ function DashboardList() {
       setLoading(true);
 
       try {
-        const response = await fetch("/api/articles/fetch-all");
+        const response = await fetch(`/api/articles/fetch-all?query=${searchQuery}`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch content. Please try again later.");
@@ -36,7 +36,7 @@ function DashboardList() {
     }
 
     fetchArticles();
-  }, []);
+  }, [searchQuery]);
 
   if (loading) {
     return <Spinner />;

@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
-import { Search } from "lucide-react";
+import React, { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
 import DashboardCard from "./DashboardCard";
 import DashboardList from "./DashboardList";
 import Spinner from "@/components/ui/Spinner";
+import Searchbar from "@/components/ui/Searchbar";
 
 // get the current time to display greeting
 const currentHour = new Date().getHours();
@@ -16,6 +16,7 @@ const time =
   "Evening";
 
 function Dashboard() {
+  const [searchQuery, setSearchQuery] = useState("");
   // check if user is signed in
   const { isSignedIn, user, isLoaded } = useUser();
 
@@ -33,17 +34,7 @@ function Dashboard() {
         </h1>
 
         {/* search bar */}
-        <div className="relative w-full max-w-md">
-          <Search
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            size={20}
-          />
-          <input
-            type="text"
-            placeholder="Search your project"
-            className="w-full pl-10 pr-4 py-2 input rounded-lg"
-          />
-        </div>
+        <Searchbar setSearchQuery={setSearchQuery} />
       </div>
 
       <div>
@@ -59,7 +50,7 @@ function Dashboard() {
           <h2 className="font-medium text-lg">Recent Content</h2>
         </div>
 
-        <DashboardList />
+        <DashboardList searchQuery={searchQuery} />
       </div>
     </div>
   );
