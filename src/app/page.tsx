@@ -49,10 +49,10 @@ export default function Home() {
             Unleash Your Creativity with AI-Powered Content Generation.
           </motion.p>
           <Link
-            href=""
+            href="/sign-up"
             className="solid-button font-bold rounded-full px-6 font-sans mt-8 py-4 z-20"
           >
-            Try once for free
+            Sign Up for free
           </Link>
           <div className="absolute bottom-0 right-0">
             <Blob2 />
@@ -101,7 +101,7 @@ export default function Home() {
               Ready to turn your ideas into compelling creations?
             </h2>
             <Link
-              href=""
+              href="/sign-up"
               className="solid-button font-bold rounded-full text-center px-6 mt-8 py-4 z-20"
             >
               Sign up for free

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/nextjs";
 import clsx from "clsx";
 
 import Spinner from "@/components/ui/Spinner";
