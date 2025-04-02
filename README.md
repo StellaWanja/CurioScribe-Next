@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CurioScribe
 
-## Getting Started
+CurioScribe is a NextJS based application that focuses on dynamic content generation using AI to craft captivating stories and insightful articles. The project can be viewed at https://curio-scribe.vercel.app/.
 
-First, run the development server:
+<img src="https://github.com/StellaWanja/CurioScribe-Next/blob/main/public/CurioScribe.png" />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**LIVE LINK**: https://curio-scribe.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features of the web app
+1. Create an account using either email / password or Google.
+2. Verify using an email token if signing up via email / password.
+3. Login using either email / password or Google.
+4. View all saved articles.
+5. Search bar to find a particular article.
+6. Generate new content.
+7. Save generated content.
+8. Update saved article.
+9. Delete article.
+10. Download article as a PDF.
+11. Update account information.
+12. Delete account.
+13. Logout user.
+14. Light / Dark toggle mode.
+15. Responsive UI.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack and Dependencies
+1. **React(v19)**, **TypeScript** and **NextJS(v15)** for dynamic and scalable development.
+2. **Google Generative AI** for content generation. 
+3. **Clerk** for user authentication.
+4. **TailwindCSS** for UI styling
+5. **Floating UI** for dynamic tooltips and dialogs.
+6. **React PDF Renderer** for PDF generation.
+7. **Drizzle ORM** with PostgreSQL and **Xata** for database management.
+8. **Motion** for motion based animations.
+9. **Lucide React** for icons.
+10. **React Markdown** for rendering markdown content.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Build instructions
+1. Clone this project locally
+2. Run *npm install* in your command line.
+3. Run *npm run dev* in your command line to run the project locally.
