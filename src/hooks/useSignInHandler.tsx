@@ -35,8 +35,6 @@ function useSignInHandler() {
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
         router.push("/dashboard");
-      } else {
-        console.error(JSON.stringify(result, null, 2));
       }
     } catch (err) {
       if (isClerkAPIResponseError(err)) setErrors(err.errors);

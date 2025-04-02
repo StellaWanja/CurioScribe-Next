@@ -102,7 +102,6 @@ export async function POST(req: Request) {
         return NextResponse.json({ response: textResponse }, { status: 200 });
       }
     } else {
-      console.error("No candidates found in response:", result);
       return NextResponse.json({ error: "No response found" }, { status: 500 });
     }
   } catch (error) {

@@ -21,7 +21,6 @@ function ArticlePDF({ articleDetails }: { articleDetails: ArticleType }) {
           ~ Created with CurioScribe ~
         </Text>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{title}</Text>
         <Text style={styles.date}>
           {!updateTimestamp
             ? formatTimestamp(createTimestamp)
@@ -31,11 +30,12 @@ function ArticlePDF({ articleDetails }: { articleDetails: ArticleType }) {
         {image && (
           // eslint-disable-next-line jsx-a11y/alt-text
           <Image
-            src={{ uri: `data:image/png;base64,${image}` }}
-            style={styles.image}
+          src={{ uri: `data:image/png;base64,${image}` }}
+          style={styles.image}
           />
         )}
 
+        <Text style={styles.subtitle}>{title}</Text>
         <Text style={styles.text}>{body}</Text>
 
         <Text
