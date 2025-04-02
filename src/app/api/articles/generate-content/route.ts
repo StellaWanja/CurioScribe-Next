@@ -69,6 +69,8 @@ export async function POST(req: Request) {
     // generate content
     const result = await model.generateContent(prompt);
 
+    console.log(result)
+
     // ensure response has content and is not empty
     if (result.response.candidates && result.response.candidates.length > 0) {
       let textResponse = "";
