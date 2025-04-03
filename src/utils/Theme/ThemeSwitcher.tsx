@@ -6,39 +6,7 @@ import { motion } from "motion/react";
 
 import useMounted from "@/hooks/useMounted";
 
-// properties for animation of light / dark button
-const animationProperties = {
-  dark: {
-    circle: {
-      r: 9,
-    },
-    mask: {
-      cx: "50%",
-      cy: "23%",
-    },
-    svg: {
-      transform: "rotate(40deg)",
-    },
-    lines: {
-      opacity: 0,
-    },
-  },
-  light: {
-    circle: {
-      r: 5,
-    },
-    mask: {
-      cx: "100%",
-      cy: "0%",
-    },
-    svg: {
-      transform: "rotate(90deg)",
-    },
-    lines: {
-      opacity: 1,
-    },
-  },
-};
+import { animationProperties } from "../variants";
 
 function ThemeSwitcher() {
   const mounted = useMounted();
